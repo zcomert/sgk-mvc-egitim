@@ -1,10 +1,11 @@
 using Entities.Models;
 using Repositories;
+using Repositories.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddSingleton<ProductRepository>(); // register
+builder.Services.AddSingleton<IProductRepository, DynamicProductRepository>(); // register
 
 var app = builder.Build();
 

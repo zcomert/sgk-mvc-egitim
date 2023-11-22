@@ -1,4 +1,14 @@
 @startuml
+
+interface IProductRepository
+{
+    +create(item:Prodcut):void
+    +update(id:int, item:Prodcut):void
+    +delete(id:int):void
+    +read(id:int):Product
+    +readAll():List<Product>
+}
+
 class ProductRepository{
     -productList:List<Product>
     +count:int
@@ -14,5 +24,7 @@ class ProductRepository{
 class Product{
 
 }
+
+ProductRepository .up.|> IProductRepository : "implements"
 hide empty members
 @enduml

@@ -1,8 +1,9 @@
 using Entities.Models;
+using Repositories.Contracts;
 
 namespace Repositories
 {
-    public class ProductRepository
+    public class ProductRepository : IProductRepository
     {
         private List<Product> productList;
         public ProductRepository()
@@ -24,7 +25,7 @@ namespace Repositories
         {
             foreach (var prd in productList)
             {
-                if(prd.ProductId.Equals(id))
+                if (prd.ProductId.Equals(id))
                 {
                     prd.ProductName = item.ProductName;
                     prd.Price = item.Price;
@@ -37,7 +38,7 @@ namespace Repositories
         {
             foreach (Product prd in productList)
             {
-                if(prd.ProductId.Equals(id))
+                if (prd.ProductId.Equals(id))
                 {
                     productList.Remove(prd);
                     return;
@@ -49,15 +50,15 @@ namespace Repositories
         {
             foreach (var prd in productList)
             {
-                if(prd.ProductId.Equals(id))
+                if (prd.ProductId.Equals(id))
                 {
                     return prd;
                 }
             }
             return null;
-        } 
+        }
 
-        public List<Product> ReadAll() 
+        public List<Product> ReadAll()
         {
             return productList;
         }

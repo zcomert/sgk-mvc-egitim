@@ -1,16 +1,17 @@
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Repositories;
+using Repositories.Contracts;
 
 namespace StoreApp.Controllers;
 
 public class ProductController : Controller
 {
-    private readonly ProductRepository _repository;
+    private readonly IProductRepository _repository;
 
-    public ProductController(ProductRepository repository)
+    public ProductController(IProductRepository repository)
     {
-        _repository = repository; // resolve
+        _repository = repository;
     }
 
     public IActionResult Index()
@@ -41,5 +42,25 @@ public class ProductController : Controller
     {
         var prd = _repository.Read(id);
         return View(prd);
+    }
+
+    [HttpPost]
+    public IActionResult Update(Product model)
+    {
+        _repository.Update(model.ProductId, model);
+        return RedirectToAction("Index");
+    }
+
+    public IActionResult Delete([FromRoute] int id)
+    {
+        var prd = _repository.Read(id);
+        return View(prd);
+    }
+
+    [HttpPost]
+    public IActionResult Delete([FromForm] Product model)
+    {
+        _repository.Delete(model.ProductId);
+        return RedirectToAction("Index");
     }
 }
