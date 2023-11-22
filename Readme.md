@@ -29,4 +29,10 @@
 - web Proje Şablon
 
 ## 3. Gün
-- 
+- Dependency Injection
+- EntityFrameworkCore
+- EntityFrameworkCore.Tools
+- EntityFrameworkCore.Design
+- EntityFrameworkCore.Sqlite
+- Code-First
+- DbContextOptions
