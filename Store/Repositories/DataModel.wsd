@@ -25,6 +25,16 @@ class Product{
 
 }
 
+class RepositoryContext
+{
+    
+}
+class DbContext
+{
+
+}
+
+RepositoryContext -up-|> DbContext : "extends"
 ProductRepository .up.|> IProductRepository : "implements"
 hide empty members
 @enduml
