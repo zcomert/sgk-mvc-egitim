@@ -1,0 +1,7 @@
+@model Employee
+
+<h3 class="display-6">
+    @Model?.FirstName @Model?.LastName
+</h3>
+<hr />
+<p class="text-danger">@Model?.Salary.ToString("c")</p>

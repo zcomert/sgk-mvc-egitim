@@ -6,19 +6,20 @@ namespace BasicApp.Controllers;
 
 public class HomeController : Controller
 {
-    public String Hello()
+    public IActionResult Hello()
     {
-        return "Hello MVC.";
+        string message = $"Hello MVC {DateTime.Now.ToString()}";
+        return View("Hello", message);
     }
 
-    public List<String> Names()
+    public IActionResult Names()
     {
         var names = new List<String>(){
             "Ahmet",
             "Mehmet",
             "Can"
         };
-        return names;
+        return View(model: names);
     }
 
     private readonly ILogger<HomeController> _logger;

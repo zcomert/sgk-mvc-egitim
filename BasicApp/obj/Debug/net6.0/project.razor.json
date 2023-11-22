@@ -18374,6 +18374,11 @@
   "RootNamespace": "BasicApp",
   "Documents": [
     {
+      "FilePath": "d:\\mvc-egitim\\BasicApp\\Views\\SGK\\Employees.cshtml",
+      "TargetPath": "Views\\SGK\\Employees.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\mvc-egitim\\BasicApp\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -18381,6 +18386,11 @@
     {
       "FilePath": "d:\\mvc-egitim\\BasicApp\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\mvc-egitim\\BasicApp\\Views\\SGK\\Employee.cshtml",
+      "TargetPath": "Views\\SGK\\Employee.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -18406,6 +18416,16 @@
     {
       "FilePath": "d:\\mvc-egitim\\BasicApp\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\mvc-egitim\\BasicApp\\Views\\Home\\Names.cshtml",
+      "TargetPath": "Views\\Home\\Names.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\mvc-egitim\\BasicApp\\Views\\Home\\Hello.cshtml",
+      "TargetPath": "Views\\Home\\Hello.cshtml",
       "FileKind": "mvc"
     }
   ],

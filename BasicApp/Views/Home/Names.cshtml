@@ -1,0 +1,12 @@
+@model List<String>
+
+<div class="text-center">
+    <h3 class="display-3">Names @Model?.Count</h3>
+</div>
+
+<ul class="list-group">
+    @foreach (var name in Model)
+    {
+        <li class="list-group-item">@name</li>
+    }
+</ul>

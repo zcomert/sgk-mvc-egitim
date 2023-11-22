@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreApp", "StoreApp\StoreApp.csproj", "{5F54F3A7-1561-4275-96FF-599684B5F88C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{C9B6CC3C-B437-4A39-B5C6-CF6AD3A94B46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{035AC23C-FC1D-467A-A8AF-9D6A9CA377B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F54F3A7-1561-4275-96FF-599684B5F88C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F54F3A7-1561-4275-96FF-599684B5F88C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F54F3A7-1561-4275-96FF-599684B5F88C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F54F3A7-1561-4275-96FF-599684B5F88C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9B6CC3C-B437-4A39-B5C6-CF6AD3A94B46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9B6CC3C-B437-4A39-B5C6-CF6AD3A94B46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9B6CC3C-B437-4A39-B5C6-CF6AD3A94B46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9B6CC3C-B437-4A39-B5C6-CF6AD3A94B46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{035AC23C-FC1D-467A-A8AF-9D6A9CA377B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{035AC23C-FC1D-467A-A8AF-9D6A9CA377B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{035AC23C-FC1D-467A-A8AF-9D6A9CA377B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{035AC23C-FC1D-467A-A8AF-9D6A9CA377B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

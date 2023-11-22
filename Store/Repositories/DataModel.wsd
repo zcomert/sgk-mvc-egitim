@@ -1,0 +1,18 @@
+@startuml
+class ProductRepository{
+    -productList:List<Product>
+    +count:int
+    --
+    +create(item:Prodcut):void
+    +update(id:int, item:Prodcut):void
+    +delete(id:int):void
+    +read(id:int):Product
+    +readAll():List<Product>
+
+}
+
+class Product{
+
+}
+hide empty members
+@enduml

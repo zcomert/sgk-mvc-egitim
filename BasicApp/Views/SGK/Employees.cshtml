@@ -1,0 +1,15 @@
+@model Employee[]
+
+<div class="text-center">
+    Employees
+</div>
+
+<ul class="list-group">
+    @foreach (Employee emp in Model)
+    {
+        <li class="list-group-item">
+            <a asp-action="Get" asp-route-id=@emp?.Id>
+                @emp?.FirstName @emp?.LastName</a>
+        </li>
+    }
+</ul>

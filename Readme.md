@@ -18,3 +18,15 @@
 - Controllers
 - Actions
 - Models
+
+- Views
+
+## 2. Gün
+- Proje Yönetimi
+- Referans tanımları 
+- Entities
+- Repository tanımlama (InMemory)
+- web Proje Şablon
+
+## 3. Gün
+- 

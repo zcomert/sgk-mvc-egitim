@@ -15,12 +15,28 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\mvc-egitim\BasicApp
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/mvc-egitim/BasicApp/Views/Home/Hello.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIZWxsby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/mvc-egitim/BasicApp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/mvc-egitim/BasicApp/Views/Home/Names.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOYW1lcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/mvc-egitim/BasicApp/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/mvc-egitim/BasicApp/Views/SGK/Employee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU0dLXEVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/mvc-egitim/BasicApp/Views/SGK/Employees.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU0dLXEVtcGxveWVlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/mvc-egitim/BasicApp/Views/Shared/Error.cshtml]
