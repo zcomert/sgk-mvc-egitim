@@ -13,14 +13,14 @@
 <body>
     <header>
         <partial name="_Navigationbar" />
-        
+
         @RenderSection("Header", false)
     </header>
-    <main>
+    <main class="container">
         @RenderBody()
     </main>
     <footer>
-        Footer
+        <partial name="_Footer" />
     </footer>
 
     <script src="@Url.Content("~/lib/jquery/jquery.min.js")"></script>

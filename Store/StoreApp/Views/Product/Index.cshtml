@@ -1,20 +1,9 @@
 @model List<Product>
 <h3>Ürünler</h3>
-<ul>
+
+<div class="row">
     @foreach (Product prd in Model)
     {
-        <li>
-            <a asp-controller="Product" asp-action="Get" asp-route-id="@prd?.ProductId">
-                @prd?.ProductName
-            </a>
-            |
-            <a asp-controller="Product" asp-action="Update" asp-route-id="@prd?.ProductId">
-                Update
-            </a>
-            |
-            <a asp-controller="Product" asp-action="Delete" asp-route-id="@prd?.ProductId">
-                Delete
-            </a>
-        </li>
+        <partial name="_ProductCard" model="@prd" />
     }
-</ul>
+</div>

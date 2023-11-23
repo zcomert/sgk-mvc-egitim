@@ -1,0 +1,9 @@
+ .footer {
+     position: fixed;
+     bottom: 0;
+     width: 100%;
+     background-color: #f8f9fa;
+     /* Footer arka plan rengi */
+     text-align: center;
+     padding: 10px;
+ }
