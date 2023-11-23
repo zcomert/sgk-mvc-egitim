@@ -16,18 +16,22 @@ namespace Repositories
 
         public void Create(Product item)
         {
-            _context.Add(item);
+            _context.Products.Add(item);
             _context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var prd = Read(id);
+            _context.Products.Remove(prd);
+            _context.SaveChanges();
         }
 
         public Product? Read(int id)
         {
-            throw new NotImplementedException();
+            return _context
+            .Products
+            .SingleOrDefault(prd => prd.ProductId.Equals(id));
         }
 
         public List<Product> ReadAll()
