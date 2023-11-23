@@ -41,7 +41,8 @@ namespace Repositories
 
         public void Update(int id, Product item)
         {
-            throw new NotImplementedException();
+            _context.Products.Update(item);
+            _context.SaveChanges();
         }
     }
 }

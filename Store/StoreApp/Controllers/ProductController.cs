@@ -31,7 +31,7 @@ public class ProductController : Controller
     }
 
     [HttpPost]
-    // [ValidateAntiForgeryToken]
+    [ValidateAntiForgeryToken]
     public IActionResult Create([FromForm] Product model)
     {
         _repository.Create(model);
@@ -45,6 +45,7 @@ public class ProductController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public IActionResult Update(Product model)
     {
         _repository.Update(model.ProductId, model);
@@ -58,6 +59,7 @@ public class ProductController : Controller
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public IActionResult Delete([FromForm] Product model)
     {
         _repository.Delete(model.ProductId);

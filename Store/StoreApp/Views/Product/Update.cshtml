@@ -1,4 +1,4 @@
-@model Entities.Models.Product
+@model Product
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,20 +9,20 @@
 </head>
 
 <body>
-    <form method="post" action="Update">
+    <form method="post" asp-action="Update">
         <div>
             <label>Product Id</label>
-            <input name="ProductId" value="@Model?.ProductId" />
+            <input asp-for="ProductId" />
         </div>
 
         <div>
             <label>Product Name</label>
-            <input name="ProductName" value="@Model?.ProductName" />
+            <input asp-for="ProductName" />
         </div>
 
         <div>
             <label>Price</label>
-            <input name="Price" value="@Model?.Price" />
+            <input asp-for="Price" />
         </div>
         <div>
             <input type="submit" value="Gönder" />

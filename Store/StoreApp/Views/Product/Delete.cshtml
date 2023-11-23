@@ -1,4 +1,4 @@
-@model Entities.Models.Product
+@model Product
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,20 +10,19 @@
 
 <body>
     <h1>Delete Product</h1>
-        <div>
+    <div>
         @Model?.ProductId
-        </div>
-        <div>
+    </div>
+    <div>
         @Model?.ProductName
-        </div>
-        <div>
+    </div>
+    <div>
         @Model?.Price
-        </div>
+    </div>
 
-    <form method="post" action="Delete">
-        <input name="ProductId" type="hidden" value="@Model?.ProductId" />
+    <form method="post" asp-action="Delete">
+        <input asp-for="ProductId" type="hidden" />
         <input type="submit" value="Sil" />
-
     </form>
 </body>
 
