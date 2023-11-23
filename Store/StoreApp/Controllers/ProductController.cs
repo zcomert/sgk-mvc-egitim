@@ -1,5 +1,6 @@
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Repositories;
 using Repositories.Contracts;
 
@@ -8,7 +9,6 @@ namespace StoreApp.Controllers;
 public class ProductController : Controller
 {
     private readonly IProductRepository _repository;
-
     public ProductController(IProductRepository repository)
     {
         _repository = repository;

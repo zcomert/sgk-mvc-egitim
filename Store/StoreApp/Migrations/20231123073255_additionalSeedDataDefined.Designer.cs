@@ -10,8 +10,8 @@ using Repositories;
 namespace StoreApp.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20231122124637_startPoint")]
-    partial class startPoint
+    [Migration("20231123073255_additionalSeedDataDefined")]
+    partial class additionalSeedDataDefined
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -47,6 +47,12 @@ namespace StoreApp.Migrations
                             ProductId = 2,
                             Price = 40000m,
                             ProductName = "Phone"
+                        },
+                        new
+                        {
+                            ProductId = 3,
+                            Price = 1000m,
+                            ProductName = "Mouse"
                         });
                 });
 #pragma warning restore 612, 618
