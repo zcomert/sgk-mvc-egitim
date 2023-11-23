@@ -1,29 +1,16 @@
 @model Product
-<!DOCTYPE html>
-<html lang="en">
+<h1>Delete Product</h1>
+<div>
+    @Model?.ProductId
+</div>
+<div>
+    @Model?.ProductName
+</div>
+<div>
+    @Model?.Price
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <h1>Delete Product</h1>
-    <div>
-        @Model?.ProductId
-    </div>
-    <div>
-        @Model?.ProductName
-    </div>
-    <div>
-        @Model?.Price
-    </div>
-
-    <form method="post" asp-action="Delete">
-        <input asp-for="ProductId" type="hidden" />
-        <input type="submit" value="Sil" />
-    </form>
-</body>
-
-</html>
+<form method="post" asp-action="Delete">
+    <input asp-for="ProductId" type="hidden" />
+    <input type="submit" value="Sil" />
+</form>

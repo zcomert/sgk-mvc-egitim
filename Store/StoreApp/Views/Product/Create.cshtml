@@ -1,31 +1,17 @@
 @model Product
+<form method="post" asp-action="Create">
+    <div>
+        <label asp-for="ProductName"></label>
+        <input asp-for="ProductName" />
+    </div>
 
-<!DOCTYPE html>
-<html lang="en">
+    <div>
+        <label asp-for="Price"></label>
+        <input asp-for="Price" />
+    </div>
+    <div>
+        <input type="submit" value="Gönder" />
+    </div>
+</form>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <form method="post" asp-action="Create">
-        <div>
-            <label>Product Name</label>
-            <input asp-for="ProductName" />
-        </div>
-
-        <div>
-            <label>Price</label>
-            <input asp-for="Price" />
-        </div>
-        <div>
-            <input type="submit" value="Gönder" />
-        </div>
-    </form>
-
-    <a asp-action="Index">Geri</a>
-</body>
-
-</html>
+<a asp-action="Index">Geri</a>

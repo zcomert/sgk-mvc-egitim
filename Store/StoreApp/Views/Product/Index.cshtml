@@ -1,34 +1,20 @@
 @model List<Product>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <h3>Ürünler</h3>
-    <ul>
-        @foreach (Product prd in Model)
-        {
-            <li>
-                <a asp-controller="Product" asp-action="Get" asp-route-id="@prd?.ProductId">
-                    @prd?.ProductName
-                </a>
-                |
-                <a asp-controller="Product" asp-action="Update" asp-route-id="@prd?.ProductId">
-                    Update
-                </a>
-                |
-                <a asp-controller="Product" asp-action="Delete" asp-route-id="@prd?.ProductId">
-                    Delete
-                </a>
-            </li>
-        }
-    </ul>
-</body>
-
-</html>
+<h3>Ürünler</h3>
+<ul>
+    @foreach (Product prd in Model)
+    {
+        <li>
+            <a asp-controller="Product" asp-action="Get" asp-route-id="@prd?.ProductId">
+                @prd?.ProductName
+            </a>
+            |
+            <a asp-controller="Product" asp-action="Update" asp-route-id="@prd?.ProductId">
+                Update
+            </a>
+            |
+            <a asp-controller="Product" asp-action="Delete" asp-route-id="@prd?.ProductId">
+                Delete
+            </a>
+        </li>
+    }
+</ul>

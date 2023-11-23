@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product App</title>
+</head>
+
+<body>
+    <header>
+        Header
+        @RenderSection("Header", false)
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>
+        Footer
+    </footer>
+
+    @await RenderSectionAsync("Scripts", false)
+</body>
+
+</html>

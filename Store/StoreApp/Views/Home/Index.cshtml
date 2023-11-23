@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<h3>Home : Index</h3>
+<a asp-controller="Product" asp-action="Index">Ürünler</a> |
+<a asp-controller="Product" asp-action="Create">Ekle</a>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <h3>Home : Index</h3>
-    <a href="/Product">Ürünler</a> |
-    <a href="/Product/Create">Ekle</a>
-</body>
-
-</html>
+@section Header {
+    <div>Hoşgeldiniz</div>
+    <p>Bu alan isteğe bağlı olarak derlenen Header section alanıdır.</p>
+}
