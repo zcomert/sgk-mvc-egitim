@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using Entities.Models;
 using Repositories.Contracts;
 
@@ -5,62 +6,44 @@ namespace Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        private List<Product> productList;
-        public ProductRepository()
-        {
-            productList = new List<Product>()
-            {
-                new Product(){ProductId=1, ProductName="Computer", Price=30_000},
-                new Product(){ProductId=2, ProductName="Phone", Price=40_000},
-            };
-        }
-        public int Count => productList.Count();
+        private readonly RepositoryContext _context;
 
+        public ProductRepository(RepositoryContext context)
+        {
+            _context = context;
+        }
+
+        public int Count => _context.Products.Count();
         public void Create(Product item)
         {
-            productList.Add(item);
+            _context.Products.Add(item);
+            _context.SaveChanges();
         }
 
-        public void Update(int id, Product item)
+        public void Delete(Product item)
         {
-            foreach (var prd in productList)
-            {
-                if (prd.ProductId.Equals(id))
-                {
-                    prd.ProductName = item.ProductName;
-                    prd.Price = item.Price;
-                    return;
-                }
-            }
+            _context.Products.Remove(item);
+            _context.SaveChanges();
         }
 
-        public void Delete(int id)
+        public Product? Read(Expression<Func<Product, bool>> filter)
         {
-            foreach (Product prd in productList)
-            {
-                if (prd.ProductId.Equals(id))
-                {
-                    productList.Remove(prd);
-                    return;
-                }
-            }
+            return _context
+            .Products
+            .SingleOrDefault(filter);
         }
 
-        public Product? Read(int id)
+        public List<Product> ReadAll(Expression<Func<Product, bool>> filter = null)
         {
-            foreach (var prd in productList)
-            {
-                if (prd.ProductId.Equals(id))
-                {
-                    return prd;
-                }
-            }
-            return null;
+            return filter is null
+            ? _context.Products.ToList()
+            : _context.Products.Where(filter).ToList();
         }
 
-        public List<Product> ReadAll()
+        public void Update(Product item)
         {
-            return productList;
+            _context.Products.Update(item);
+            _context.SaveChanges();
         }
     }
 }
