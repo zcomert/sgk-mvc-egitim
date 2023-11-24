@@ -16,6 +16,43 @@ namespace StoreApp.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.0");
 
+            modelBuilder.Entity("Entities.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CategoryId");
+
+                    b.ToTable("Category");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            CategoryName = "Bilgisayar"
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            CategoryName = "Elektronik"
+                        },
+                        new
+                        {
+                            CategoryId = 3,
+                            CategoryName = "Telefonlar"
+                        },
+                        new
+                        {
+                            CategoryId = 4,
+                            CategoryName = "Televizyonlar"
+                        });
+                });
+
             modelBuilder.Entity("Entities.Models.Product", b =>
                 {
                     b.Property<int>("ProductId")
