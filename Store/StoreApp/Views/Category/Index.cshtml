@@ -1,0 +1,12 @@
+@model List<Category>
+
+<div class="text-center">
+    <h3 class="display-3">Kategoriler</h3>
+</div>
+
+<ul class="list-group">
+    @foreach (Category cat in Model)
+    {
+        <li class="list-group-item">@cat?.CategoryName</li>
+    }
+</ul>
