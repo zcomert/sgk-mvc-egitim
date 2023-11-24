@@ -36,3 +36,21 @@
 - EntityFrameworkCore.Sqlite
 - Code-First
 - DbContextOptions
+- Sqlite
+
+## 4. Gün
+- Client-side Libraries Management
+- libman 
+- Boostrap
+- Font-awesome
+- Layout
+- RenderBody
+- RenderSection
+
+## 5. Gün
+- Repository Design Pattern
+- Generic Repository Design Pattern
+- CategoryRepository
+- RepositoryBase
+- RepositoryManager
+- Unit of Work
