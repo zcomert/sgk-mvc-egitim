@@ -1,17 +1,28 @@
 @model Product
 <form method="post" asp-action="Create">
-    <div>
+    <div class="text-center">
+        <h3 class="display-3">
+            Ürün Ekle
+        </h3>
+    </div>
+    <div class="form-group">
         <label asp-for="ProductName"></label>
-        <input asp-for="ProductName" />
+        <input class="form-control" asp-for="ProductName" placeholder="Ürün adı giriniz." />
     </div>
 
-    <div>
+    <div class="form-group">
         <label asp-for="Price"></label>
-        <input asp-for="Price" />
+        <input class="form-control" asp-for="Price" placeholder="Ürün fiyatını giriniz." />
     </div>
-    <div>
-        <input type="submit" value="Gönder" />
+    <div class="button-group mt-3">
+        <a class="btn btn-primary" asp-controller="Home" asp-action="Index">
+            <i class="fa fa-home"></i>
+            Ana Sayfa</a>
+
+        <a class="btn btn-outline-primary" asp-controller="Product" asp-action="Index">
+            <i class="fa fa-list"></i>
+            Ürünler</a>
+        <input class="btn btn-success" type="submit" value="Gönder" />
+
     </div>
 </form>
-
-<a asp-action="Index">Geri</a>

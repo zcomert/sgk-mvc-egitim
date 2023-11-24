@@ -9,6 +9,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IProductRepository, SqliteProductRepository>(); // register
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>(); // register
 
+
 builder.Services.AddDbContext<RepositoryContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("sqliteconnection"),
         prj => prj.MigrationsAssembly("StoreApp")

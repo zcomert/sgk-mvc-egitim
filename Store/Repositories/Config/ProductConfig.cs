@@ -9,8 +9,9 @@ namespace Repositories.Config
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder.HasKey(p => p.ProductId);
-            
-            builder.Property(p => p.ProductName).IsRequired();
+
+            builder.Property(p => p.ProductName)
+            .IsRequired();
             
             builder.HasData(
                  new Product()
