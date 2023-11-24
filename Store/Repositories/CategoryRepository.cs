@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using Entities.Models;
 using Repositories.Contracts;
 
@@ -20,23 +21,30 @@ public class CategoryRepository : ICategoryRepository
         _context.SaveChanges();
     }
 
-    public void Delete(int id)
+    public void Delete(Category item)
     {
-        var category = Read(id);
-        _context.Categories.Remove(category);
+        _context.Remove(item);
         _context.SaveChanges();
     }
 
-    public Category? Read(int id)
+    public Category? Read(Expression<Func<Category, bool>> filter)
     {
         return _context
         .Categories
-        .SingleOrDefault(c => c.CategoryId.Equals(id));
+        .SingleOrDefault(filter);
     }
 
-    public List<Category> ReadAll()
+    public List<Category> ReadAll(Expression<Func<Category, bool>> filter = null)
     {
-        return _context.Categories.ToList();
+        // if(filter is null)
+        // {
+        //     return _context.Categories.ToList();
+        // }
+        // return _context.Categories.Where(filter).ToList();
+
+        return filter is null
+            ? _context.Categories.ToList()
+            : _context.Categories.Where(filter).ToList();
     }
 
     public void Update(Category item)

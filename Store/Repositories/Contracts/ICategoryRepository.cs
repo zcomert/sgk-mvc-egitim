@@ -2,13 +2,8 @@ using Entities.Models;
 
 namespace Repositories.Contracts
 {
-    public interface ICategoryRepository
+    public interface ICategoryRepository : IRepositoryBase<Category>
     {
-        int Count { get; }
-        void Create(Category item);
-        void Update(Category item);
-        void Delete(int id);
-        Category? Read(int id);
-        List<Category> ReadAll();
+
     }
 }
