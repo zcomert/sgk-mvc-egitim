@@ -27,12 +27,18 @@ namespace StoreApp.Migrations
                 {
                     ProductId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    CategoryId = table.Column<int>(type: "INTEGER", nullable: true),
                     ProductName = table.Column<string>(type: "TEXT", nullable: false),
                     Price = table.Column<decimal>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.ProductId);
+                    table.ForeignKey(
+                        name: "FK_Products_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "CategoryId");
                 });
 
             migrationBuilder.InsertData(
@@ -57,27 +63,32 @@ namespace StoreApp.Migrations
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "ProductId", "Price", "ProductName" },
-                values: new object[] { 1, 30000m, "Computer" });
+                columns: new[] { "ProductId", "CategoryId", "Price", "ProductName" },
+                values: new object[] { 1, 1, 30000m, "Computer" });
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "ProductId", "Price", "ProductName" },
-                values: new object[] { 2, 40000m, "Phone" });
+                columns: new[] { "ProductId", "CategoryId", "Price", "ProductName" },
+                values: new object[] { 2, 1, 40000m, "Phone" });
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "ProductId", "Price", "ProductName" },
-                values: new object[] { 3, 1000m, "Mouse" });
+                columns: new[] { "ProductId", "CategoryId", "Price", "ProductName" },
+                values: new object[] { 3, 1, 1000m, "Mouse" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_CategoryId",
+                table: "Products",
+                column: "CategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Products");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Categories");
         }
     }
 }

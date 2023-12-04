@@ -6,12 +6,15 @@ public class RepositoryManager : IRepositoryManager
 {
     private readonly IProductRepository _productRepository;
     private readonly ICategoryRepository _categoryRepository;
+    private readonly RepositoryContext _context;
 
     public RepositoryManager(IProductRepository productRepository,
-        ICategoryRepository categoryRepository)
+        ICategoryRepository categoryRepository,
+        RepositoryContext context)
     {
         _productRepository = productRepository;
         _categoryRepository = categoryRepository;
+        _context = context;
     }
 
     public IProductRepository ProductRepository => _productRepository;
@@ -19,6 +22,6 @@ public class RepositoryManager : IRepositoryManager
 
     public void Save()
     {
-        throw new NotImplementedException();
+        _context.SaveChanges();
     }
 }

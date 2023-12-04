@@ -12,23 +12,26 @@ namespace Repositories.Config
 
             builder.Property(p => p.ProductName)
             .IsRequired();
-            
+
             builder.HasData(
                  new Product()
                  {
                      ProductId = 1,
+                     CategoryId = 1,
                      ProductName = "Computer",
                      Price = 30_000
                  },
                 new Product()
                 {
                     ProductId = 2,
+                    CategoryId = 1,
                     ProductName = "Phone",
                     Price = 40_000
                 },
                 new Product()
                 {
                     ProductId = 3,
+                    CategoryId = 1,
                     ProductName = "Mouse",
                     Price = 1_000
                 }

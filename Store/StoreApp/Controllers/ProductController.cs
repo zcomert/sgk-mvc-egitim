@@ -29,6 +29,8 @@ public class ProductController : Controller
     }
     public IActionResult Create()
     {
+        // Categories sayfaya gitmeli.
+        ViewBag.Categories = _manager.CategoryRepository.ReadAll();
         return View();
     }
 
@@ -37,6 +39,7 @@ public class ProductController : Controller
     public IActionResult Create([FromForm] Product model)
     {
         _manager.ProductRepository.Create(model);
+        _manager.Save();
         return RedirectToAction("Index");
     }
 
@@ -56,6 +59,8 @@ public class ProductController : Controller
         _manager
         .ProductRepository
         .Update(model);
+
+        _manager.Save();
 
         return RedirectToAction("Index");
     }

@@ -5,16 +5,19 @@ namespace StoreApp.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly ICategoryRepository _repository;
+        private readonly IRepositoryManager _manager;
 
-        public CategoryController(ICategoryRepository repository)
+        public CategoryController(IRepositoryManager manager)
         {
-            _repository = repository;
+            _manager = manager;
         }
 
         public IActionResult Index()
         {
-            var model = _repository.ReadAll();
+            var model = _manager
+            .CategoryRepository
+            .ReadAll();
+
             return View(model);
         }
     }

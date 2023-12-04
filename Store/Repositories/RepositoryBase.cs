@@ -18,13 +18,13 @@ where T : class
     public void Create(T item)
     {
         _context.Set<T>().Add(item);
-        _context.SaveChanges();
+        // _context.SaveChanges();
     }
 
     public void Delete(T item)
     {
         _context.Set<T>().Remove(item);
-        _context.SaveChanges();
+        // _context.SaveChanges();
     }
 
     public T? Read(Expression<Func<T, bool>> filter)
@@ -44,6 +44,6 @@ where T : class
     public void Update(T item)
     {
         _context.Set<T>().Update(item);
-        _context.SaveChanges();
+        // _context.SaveChanges();
     }
 }
