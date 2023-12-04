@@ -11,6 +11,12 @@
             <a asp-controller="Product" asp-action="Get" asp-route-id="@Model?.ProductId" class="btn btn-primary">
                 <i class="fa fa-arrow-right"></i>
                 Get Details</a>
+
+            <a asp-controller="Product" asp-action="Update" 
+                asp-route-id="@Model?.ProductId"
+                class="btn btn-outline-primary">
+                <i class="fa fa-arrow-right"></i>
+                Update</a>
         </div>
     </div>
 </div>

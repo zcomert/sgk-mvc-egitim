@@ -1,5 +1,6 @@
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Repositories;
 using Repositories.Contracts;
@@ -29,9 +30,21 @@ public class ProductController : Controller
     }
     public IActionResult Create()
     {
-        // Categories sayfaya gitmeli.
-        ViewBag.Categories = _manager.CategoryRepository.ReadAll();
+        ViewBag.Categories = GetCategorySelectList();
         return View();
+    }
+
+    private SelectList GetCategorySelectList()
+    {
+        // Categories sayfaya gitmeli.
+        var categories = _manager
+        .CategoryRepository
+        .ReadAll();
+
+        return new SelectList(categories,
+        "CategoryId",
+        "CategoryName",
+        "1");
     }
 
     [HttpPost]
@@ -45,6 +58,8 @@ public class ProductController : Controller
 
     public IActionResult Update(int id)
     {
+        ViewBag.Categories = GetCategorySelectList();
+        
         var prd = _manager
         .ProductRepository
         .Read(prd => prd.ProductId.Equals(id));
