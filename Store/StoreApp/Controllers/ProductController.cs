@@ -8,21 +8,22 @@ namespace StoreApp.Controllers;
 
 public class ProductController : Controller
 {
-    private readonly IProductRepository _repository;
-    public ProductController(IProductRepository repository)
+    private readonly IRepositoryManager _manager;
+
+    public ProductController(IRepositoryManager manager)
     {
-        _repository = repository;
+        _manager = manager;
     }
 
     public IActionResult Index()
     {
-        List<Product>? products = _repository.ReadAll();
+        List<Product>? products = _manager.ProductRepository.ReadAll();
         return View(products);
     }
 
     public IActionResult Get(int id)
     {
-        var product = _repository
+        var product = _manager.ProductRepository
         .Read(p => p.ProductId.Equals(id));
         return View(product);
     }
@@ -35,13 +36,16 @@ public class ProductController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Create([FromForm] Product model)
     {
-        _repository.Create(model);
+        _manager.ProductRepository.Create(model);
         return RedirectToAction("Index");
     }
 
     public IActionResult Update(int id)
     {
-        var prd = _repository.Read(prd => prd.ProductId.Equals(id));
+        var prd = _manager
+        .ProductRepository
+        .Read(prd => prd.ProductId.Equals(id));
+
         return View(prd);
     }
 
@@ -49,13 +53,19 @@ public class ProductController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Update(Product model)
     {
-        _repository.Update(model);
+        _manager
+        .ProductRepository
+        .Update(model);
+
         return RedirectToAction("Index");
     }
 
     public IActionResult Delete([FromRoute] int id)
     {
-        var prd = _repository.Read(prd => prd.ProductId.Equals(id));
+        var prd = _manager
+        .ProductRepository
+        .Read(prd => prd.ProductId.Equals(id));
+
         return View(prd);
     }
 
@@ -63,7 +73,10 @@ public class ProductController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Delete([FromForm] Product model)
     {
-        _repository.Delete(model);
+        _manager
+        .ProductRepository
+        .Delete(model);
+
         return RedirectToAction("Index");
     }
 }

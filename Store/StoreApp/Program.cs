@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IProductRepository, ProductRepository>(); // register
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>(); // register
+builder.Services.AddScoped<IRepositoryManager, RepositoryManager>(); // register
 
 
 builder.Services.AddDbContext<RepositoryContext>(options =>

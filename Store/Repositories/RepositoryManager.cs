@@ -16,4 +16,9 @@ public class RepositoryManager : IRepositoryManager
 
     public IProductRepository ProductRepository => _productRepository;
     public ICategoryRepository CategoryRepository => _categoryRepository;
+
+    public void Save()
+    {
+        throw new NotImplementedException();
+    }
 }
