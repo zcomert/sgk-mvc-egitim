@@ -2,6 +2,8 @@ using Entities.Models;
 using Microsoft.EntityFrameworkCore;
 using Repositories;
 using Repositories.Contracts;
+using Services;
+using Services.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IProductRepository, ProductRepository>(); // register
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>(); // register
 builder.Services.AddScoped<IRepositoryManager, RepositoryManager>(); // register
+
+builder.Services.AddScoped<IServiceManager, ServiceManager>(); // register
+builder.Services.AddScoped<ICategoryService, CategoryService>(); // register
 
 
 builder.Services.AddDbContext<RepositoryContext>(options =>
