@@ -22,7 +22,8 @@ public class ProductController : Controller
 
     public IActionResult Get(int id)
     {
-        var product = _repository.Read(id);
+        var product = _repository
+        .Read(p => p.ProductId.Equals(id));
         return View(product);
     }
     public IActionResult Create()
@@ -40,7 +41,7 @@ public class ProductController : Controller
 
     public IActionResult Update(int id)
     {
-        var prd = _repository.Read(id);
+        var prd = _repository.Read(prd => prd.ProductId.Equals(id));
         return View(prd);
     }
 
@@ -48,13 +49,13 @@ public class ProductController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Update(Product model)
     {
-        _repository.Update(model.ProductId, model);
+        _repository.Update(model);
         return RedirectToAction("Index");
     }
 
     public IActionResult Delete([FromRoute] int id)
     {
-        var prd = _repository.Read(id);
+        var prd = _repository.Read(prd => prd.ProductId.Equals(id));
         return View(prd);
     }
 
@@ -62,7 +63,7 @@ public class ProductController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Delete([FromForm] Product model)
     {
-        _repository.Delete(model.ProductId);
+        _repository.Delete(model);
         return RedirectToAction("Index");
     }
 }

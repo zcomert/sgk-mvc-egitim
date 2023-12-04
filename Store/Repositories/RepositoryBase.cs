@@ -3,10 +3,10 @@ using Repositories.Contracts;
 
 namespace Repositories;
 
-public class RepositoryBase<T> : IRepositoryBase<T>
+public abstract class RepositoryBase<T> : IRepositoryBase<T>
 where T : class
 {
-    private readonly RepositoryContext _context;
+    protected readonly RepositoryContext _context;
 
     public RepositoryBase(RepositoryContext context)
     {
@@ -17,26 +17,33 @@ where T : class
 
     public void Create(T item)
     {
-        throw new NotImplementedException();
+        _context.Set<T>().Add(item);
+        _context.SaveChanges();
     }
 
     public void Delete(T item)
     {
-        throw new NotImplementedException();
+        _context.Set<T>().Remove(item);
+        _context.SaveChanges();
     }
 
     public T? Read(Expression<Func<T, bool>> filter)
     {
-        throw new NotImplementedException();
+        return _context
+            .Set<T>()
+            .SingleOrDefault(filter);
     }
 
     public List<T> ReadAll(Expression<Func<T, bool>> filter = null)
     {
-        throw new NotImplementedException();
+        return filter is null
+          ? _context.Set<T>().ToList()
+          : _context.Set<T>().Where(filter).ToList();
     }
 
     public void Update(T item)
     {
-        throw new NotImplementedException();
+        _context.Set<T>().Update(item);
+        _context.SaveChanges();
     }
 }
