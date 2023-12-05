@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using Repositories.Contracts;
 
 namespace Repositories;
@@ -27,18 +28,24 @@ where T : class
         // _context.SaveChanges();
     }
 
-    public T? Read(Expression<Func<T, bool>> filter)
+    public T? Read(Expression<Func<T, bool>> filter, bool isTracking = true)
     {
-        return _context
+        return isTracking
+        ? _context
             .Set<T>()
+            .SingleOrDefault(filter)
+        : _context
+            .Set<T>()
+            .AsNoTracking()
             .SingleOrDefault(filter);
     }
 
-    public List<T> ReadAll(Expression<Func<T, bool>> filter = null)
+    public IQueryable<T> ReadAll(Expression<Func<T, bool>> filter = null, 
+        bool isTracking = false)
     {
-        return filter is null
-          ? _context.Set<T>().ToList()
-          : _context.Set<T>().Where(filter).ToList();
+        return isTracking
+          ? _context.Set<T>().Where(filter)
+          : _context.Set<T>().Where(filter).AsNoTracking();
     }
 
     public void Update(T item)
