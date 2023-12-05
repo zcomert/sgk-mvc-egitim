@@ -1,0 +1,20 @@
+@startuml
+
+actor User
+participant Client
+participant AuthorizationServer
+participant ResourceServer
+
+User -> Client: (1) Tarayıcıda giriş yap
+Client -> AuthorizationServer: (2) Kullanıcıyı yönlendir (Authorize)
+AuthorizationServer --> User: (3) Giriş bilgilerini iste
+User --> AuthorizationServer: (4) Giriş bilgilerini gir
+AuthorizationServer -> User: (5) Onay al (Consent)
+User --> AuthorizationServer: (6) Onay ver
+AuthorizationServer --> Client: (7) Authorization Code
+Client -> AuthorizationServer: (8) Authorization Code ile Token iste
+AuthorizationServer --> Client: (9) Access Token ve Refresh Token
+Client -> ResourceServer: (10) Access Token ile kaynaklara eriş
+ResourceServer --> Client: (11) Kaynakları gönder
+
+@enduml

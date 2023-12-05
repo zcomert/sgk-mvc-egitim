@@ -1,0 +1,29 @@
+@model IEnumerable<Product>
+
+<div class="my-3">
+
+
+    <table class="table table-hover table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ürün Adı</th>
+                <th>Fiyat</th>
+                <th>Kategori</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Product prd in Model)
+            {
+                <tr>
+                    <td>@prd?.ProductId</td>
+                    <td>@prd?.ProductName</td>
+                    <td>@prd?.Price.ToString("C2")</td>
+                    <td>@prd?.Category?.CategoryName</td>
+                    <td></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

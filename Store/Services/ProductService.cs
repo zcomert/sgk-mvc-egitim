@@ -35,6 +35,13 @@ public class ProductService : IProductService
                 .ReadAll(filter,isTracking);
     }
 
+    public IEnumerable<Product> GetAllProductsWithDetails()
+    {
+        return _manager
+        .ProductRepository
+        .GetAllProductsWithDetails();
+    }
+
     public Product? GetOneProduct(int id, bool isTracking=true)
     {
         var product = _manager

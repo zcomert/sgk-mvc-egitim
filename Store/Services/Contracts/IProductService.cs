@@ -5,6 +5,7 @@ namespace Services.Contracts;
 
 public interface IProductService
 {
+    IEnumerable<Product> GetAllProductsWithDetails();
     IEnumerable<Product> GetAllProducts(Expression<Func<Product, bool>> filter = null,
         bool isTracking=false);
     Product? GetOneProduct(int id, bool isTracking=true);
