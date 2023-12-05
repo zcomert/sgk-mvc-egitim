@@ -40,6 +40,49 @@ public class ProductController : Controller
         .CreateOneProduct(model);
         return RedirectToAction("Index");
     }
+
+    public IActionResult Update(int id)
+    {
+        ViewBag.Categories = GetCategorySelectList();
+
+        var prd = _manager
+            .ProductService
+            .GetOneProduct(id, false);
+
+        return View(prd);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Update(Product model)
+    {
+        _manager
+            .ProductService
+            .UpdateOneProduct(model.ProductId, model);
+
+        return RedirectToAction("Index");
+    }
+
+    public IActionResult Delete([FromRoute] int id)
+    {
+        var prd = _manager
+            .ProductService
+            .GetOneProduct(id);
+
+        return View(prd);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Delete([FromForm] Product model)
+    {
+        _manager
+        .ProductService
+        .DeleteOneProduct(model.ProductId);
+
+        return RedirectToAction("Index");
+    }
+
     private SelectList GetCategorySelectList()
     {
         // Categories sayfaya gitmeli.

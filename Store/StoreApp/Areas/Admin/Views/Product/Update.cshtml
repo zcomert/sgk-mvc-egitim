@@ -1,0 +1,33 @@
+@model Product
+<form method="post" asp-action="Update">
+    <div class="form-group my-3">
+        <label>Kategori</label>
+        <select class="form-control" asp-for="CategoryId" asp-items="@ViewBag.Categories">
+        </select>
+    </div>
+
+    <div class="form-group my-3">
+        <input type="hidden" class="form-control" asp-for="ProductId" />
+    </div>
+
+    <div class="form-group my-3">
+        <label>Ürün Adı</label>
+        <input class="form-control" asp-for="ProductName" />
+    </div>
+
+    <div class="form-group my-3">
+        <label>Fiyatı</label>
+        <input class="form-control" asp-for="Price" />
+    </div>
+    <div class="form-group my-3">
+        <button class="btn btn-success" type="submit">
+            <i class="fa fa-save"></i>
+            Güncelle
+        </button>
+
+        <a class="btn btn-outline-success" asp-action="Index">
+            <i class="fa fa-list"></i>
+            Ürünler
+        </a>
+    </div>
+</form>
