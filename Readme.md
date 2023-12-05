@@ -54,3 +54,15 @@
 - RepositoryBase
 - RepositoryManager
 - Unit of Work
+
+## 6. Gün
+- Advanced Generic Repository Design Pattern
+- Service Layer
+- Services
+
+## 7. Gün
+- Services
+- Areas
+- ViewComponents
+- AutoMapper
+

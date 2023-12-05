@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel </title>
+    <link rel="stylesheet" asp-append-version="true" href="@Url.Content("~/lib/bootstrap/css/bootstrap.min.css")">
+    <link rel="stylesheet" asp-append-version="true" href="@Url.Content("~/css/site.css")">
+    <link rel="stylesheet" asp-append-version="true" href="@Url.Content("~/lib/font-awesome/css/all.min.css")">
+</head>
+
+<body>
+    <header>
+        <partial name="_AdminNavigationBar" />
+
+        @RenderSection("Header", false)
+    </header>
+    <main class="container">
+        @RenderBody()
+    </main>
+    <footer>
+        <partial name="_AdminFooter" />
+    </footer>
+
+    <script src="@Url.Content("~/lib/jquery/jquery.min.js")"></script>
+    <script src="@Url.Content("~/lib/bootstrap/js/bootstrap.bundle.min.js")"></script>
+    <script src="@Url.Content("~/js/site.js")"></script>
+    @await RenderSectionAsync("Scripts", false)
+</body>
+
+</html>
