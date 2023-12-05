@@ -1,7 +1,13 @@
 @model IEnumerable<Product>
 
-<div class="my-3">
+<div class="d-flex justify-content-end my-3">
+    <a class="btn btn-success" asp-controller="Product" asp-action="Create">
+        <i class="fa fa-plus"></i>
+        Yeni Ürün Ekle
+    </a>
+</div>
 
+<div class="my-3">
 
     <table class="table table-hover table-bordered table-striped">
         <thead>
@@ -21,7 +27,27 @@
                     <td>@prd?.ProductName</td>
                     <td>@prd?.Price.ToString("C2")</td>
                     <td>@prd?.Category?.CategoryName</td>
-                    <td></td>
+                    <td>
+                        <div class="btn btn-group">
+                            <a class="btn btn-warning" asp-controller="Product" asp-action="Update"
+                                asp-route-id="@prd?.ProductId">
+                                <i class="fa fa-edit"></i>
+                                Düzenle
+                            </a>
+
+                            <a class="btn btn-danger" asp-controller="Product" asp-action="Delete"
+                                asp-route-id="@prd?.ProductId">
+                                <i class="fa fa-trash"></i>
+                                Sil
+                            </a>
+
+                            <a class="btn btn-info" asp-area="" asp-controller="Product" asp-action="Get"
+                                asp-route-id="@prd?.ProductId">
+                                <i class="fa fa-search"></i>
+                                Önizleme
+                            </a>
+                        </div>
+                    </td>
                 </tr>
             }
         </tbody>

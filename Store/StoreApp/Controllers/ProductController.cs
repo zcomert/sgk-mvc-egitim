@@ -43,6 +43,15 @@ public class ProductController : Controller
         });
     }
 
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult Create([FromForm] Product model)
+    {
+        _manager
+        .ProductService
+        .CreateOneProduct(model);
+        return RedirectToAction("Index");
+    }
     private SelectList GetCategorySelectList()
     {
         // Categories sayfaya gitmeli.
@@ -56,15 +65,6 @@ public class ProductController : Controller
         "1");
     }
 
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public IActionResult Create([FromForm] Product model)
-    {
-        _manager
-        .ProductService
-        .CreateOneProduct(model);
-        return RedirectToAction("Index");
-    }
 
     public IActionResult Update(int id)
     {
