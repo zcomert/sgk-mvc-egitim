@@ -27,18 +27,20 @@ public class ProductService : IProductService
         _manager.Save();
     }
 
-    public IEnumerable<Product> GetAllProducts(Expression<Func<Product, bool>> filter = null)
+    public IEnumerable<Product> GetAllProducts(Expression<Func<Product, bool>> filter = null,
+        bool isTracking = false)
     {
         return _manager
                 .ProductRepository
-                .ReadAll(filter);
+                .ReadAll(filter,isTracking);
     }
 
-    public Product? GetOneProduct(int id)
+    public Product? GetOneProduct(int id, bool isTracking=true)
     {
         var product = _manager
                     .ProductRepository
-                    .Read(prd => prd.ProductId.Equals(id));
+                    .Read(prd => prd.ProductId.Equals(id), isTracking);
+        
         if (product is null)
             throw new Exception();
 
@@ -47,14 +49,16 @@ public class ProductService : IProductService
 
     public void UpdateOneProduct(int id, Product product)
     {
-        var prd = GetOneProduct(id); // tracking ProductId
-        if (id.Equals(product.ProductId))
-        {
-            prd.ProductName = product.ProductName;
-            prd.Price = product.Price;
+        var prd = GetOneProduct(id,false); // tracking ProductId
+        _manager.ProductRepository.Update(product);
+        _manager.Save();
+        // if (id.Equals(product.ProductId))
+        // {
+        //     prd.ProductName = product.ProductName;
+        //     prd.Price = product.Price;
 
-            _manager.ProductRepository.Update(prd);
-            _manager.Save();
-        }
+        //     _manager.ProductRepository.Update(prd);
+        //     _manager.Save();
+        // }
     }
 }

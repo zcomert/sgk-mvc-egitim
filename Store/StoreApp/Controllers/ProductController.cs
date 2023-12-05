@@ -4,42 +4,51 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Repositories;
 using Repositories.Contracts;
+using Services.Contracts;
 
 namespace StoreApp.Controllers;
 
 public class ProductController : Controller
 {
-    private readonly IRepositoryManager _manager;
+    private readonly IServiceManager _manager;
 
-    public ProductController(IRepositoryManager manager)
+    public ProductController(IServiceManager manager)
     {
         _manager = manager;
     }
 
     public IActionResult Index()
     {
-        List<Product>? products = _manager.ProductRepository.ReadAll();
+        var products = _manager
+            .ProductService
+            .GetAllProducts();
+
         return View(products);
     }
 
     public IActionResult Get(int id)
     {
-        var product = _manager.ProductRepository
-        .Read(p => p.ProductId.Equals(id));
+        var product = _manager
+            .ProductService
+            .GetOneProduct(id, false);
+
         return View(product);
     }
     public IActionResult Create()
     {
         ViewBag.Categories = GetCategorySelectList();
-        return View();
+        return View(new Product()
+        {
+            ProductName = "Ürünü adını giriniz"
+        });
     }
 
     private SelectList GetCategorySelectList()
     {
         // Categories sayfaya gitmeli.
         var categories = _manager
-        .CategoryRepository
-        .ReadAll();
+        .CategoryService
+        .GetAllCategories();
 
         return new SelectList(categories,
         "CategoryId",
@@ -51,18 +60,19 @@ public class ProductController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Create([FromForm] Product model)
     {
-        _manager.ProductRepository.Create(model);
-        _manager.Save();
+        _manager
+        .ProductService
+        .CreateOneProduct(model);
         return RedirectToAction("Index");
     }
 
     public IActionResult Update(int id)
     {
         ViewBag.Categories = GetCategorySelectList();
-        
+
         var prd = _manager
-        .ProductRepository
-        .Read(prd => prd.ProductId.Equals(id));
+            .ProductService
+            .GetOneProduct(id, false);
 
         return View(prd);
     }
@@ -72,10 +82,8 @@ public class ProductController : Controller
     public IActionResult Update(Product model)
     {
         _manager
-        .ProductRepository
-        .Update(model);
-
-        _manager.Save();
+            .ProductService
+            .UpdateOneProduct(model.ProductId, model);
 
         return RedirectToAction("Index");
     }
@@ -83,8 +91,8 @@ public class ProductController : Controller
     public IActionResult Delete([FromRoute] int id)
     {
         var prd = _manager
-        .ProductRepository
-        .Read(prd => prd.ProductId.Equals(id));
+            .ProductService
+            .GetOneProduct(id);
 
         return View(prd);
     }
@@ -94,8 +102,8 @@ public class ProductController : Controller
     public IActionResult Delete([FromForm] Product model)
     {
         _manager
-        .ProductRepository
-        .Delete(model);
+        .ProductService
+        .DeleteOneProduct(model.ProductId);
 
         return RedirectToAction("Index");
     }

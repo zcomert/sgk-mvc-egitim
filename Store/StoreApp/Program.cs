@@ -14,6 +14,7 @@ builder.Services.AddScoped<IRepositoryManager, RepositoryManager>(); // register
 
 builder.Services.AddScoped<IServiceManager, ServiceManager>(); // register
 builder.Services.AddScoped<ICategoryService, CategoryService>(); // register
+builder.Services.AddScoped<IProductService, ProductService>(); // register
 
 
 builder.Services.AddDbContext<RepositoryContext>(options =>

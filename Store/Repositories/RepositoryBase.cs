@@ -44,8 +44,13 @@ where T : class
         bool isTracking = false)
     {
         return isTracking
-          ? _context.Set<T>().Where(filter)
-          : _context.Set<T>().Where(filter).AsNoTracking();
+          ? filter is null
+            ? _context.Set<T>()
+            : _context.Set<T>().Where(filter)
+
+          : filter is null
+            ? _context.Set<T>().AsNoTracking()
+            : _context.Set<T>().Where(filter).AsNoTracking();
     }
 
     public void Update(T item)
