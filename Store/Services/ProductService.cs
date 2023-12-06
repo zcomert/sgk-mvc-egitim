@@ -67,11 +67,15 @@ public class ProductService : IProductService
         return product;
     }
 
-    public void UpdateOneProduct(int id, Product product)
+    public void UpdateOneProduct(int id, ProductDtoForUpdate productDto)
     {
         var prd = GetOneProduct(id,false); // tracking ProductId
-        _manager.ProductRepository.Update(product);
+
+        prd = _mapper.Map<Product>(productDto);
+        
+        _manager.ProductRepository.Update(prd);
         _manager.Save();
+        
         // if (id.Equals(product.ProductId))
         // {
         //     prd.ProductName = product.ProductName;
@@ -80,5 +84,6 @@ public class ProductService : IProductService
         //     _manager.ProductRepository.Update(prd);
         //     _manager.Save();
         // }
+    
     }
 }
