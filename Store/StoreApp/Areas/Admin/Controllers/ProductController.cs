@@ -37,7 +37,7 @@ public class ProductController : Controller
     public IActionResult Create([FromForm] ProductDtoForInsertion model)
     {
         ViewBag.Categories = GetCategorySelectList();
-        
+
         if (ModelState.IsValid)
         {
             _manager
@@ -61,13 +61,20 @@ public class ProductController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Update(Product model)
+    public IActionResult Update(ProductDtoForUpdate model)
     {
-        _manager
-            .ProductService
-            .UpdateOneProduct(model.ProductId, model);
+        ViewBag.Categories = GetCategorySelectList();
+        
+        if (ModelState.IsValid)
+        {
+            _manager
+                .ProductService
+                .UpdateOneProduct(model.ProductId, model);
 
-        return RedirectToAction("Index");
+            return RedirectToAction("Index");
+        }
+        
+        return View(model);
     }
 
     public IActionResult Delete([FromRoute] int id)

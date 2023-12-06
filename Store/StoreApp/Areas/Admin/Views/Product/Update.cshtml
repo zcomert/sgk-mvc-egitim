@@ -1,10 +1,13 @@
-@model Product
+@model ProductDtoForUpdate
+
 <form method="post" asp-action="Update">
     <div class="form-group my-3">
         <label>Kategori</label>
         <select class="form-control" asp-for="CategoryId" asp-items="@ViewBag.Categories">
         </select>
     </div>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
 
     <div class="form-group my-3">
         <input type="hidden" class="form-control" asp-for="ProductId" />
@@ -13,11 +16,13 @@
     <div class="form-group my-3">
         <label>Ürün Adı</label>
         <input class="form-control" asp-for="ProductName" />
+        <span asp-validation-for="ProductName" class="text-danger"></span>
     </div>
 
     <div class="form-group my-3">
         <label>Fiyatı</label>
         <input class="form-control" asp-for="Price" />
+        <span asp-validation-for="Price" class="text-danger"></span>
     </div>
     <div class="form-group my-3">
         <button class="btn btn-success" type="submit">
