@@ -11,6 +11,6 @@ public interface IProductService
         bool isTracking=false);
     Product? GetOneProduct(int id, bool isTracking=true);
     void CreateOneProduct(ProductDtoForInsertion productDto);
-    void UpdateOneProduct(int id, Product product);
+    void UpdateOneProduct(int id, ProductDtoForUpdate productDto);
     void DeleteOneProduct(int id);
 }

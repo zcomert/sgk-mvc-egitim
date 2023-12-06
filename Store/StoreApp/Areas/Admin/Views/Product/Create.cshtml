@@ -1,5 +1,6 @@
 @model ProductDtoForInsertion
 
+
 <form method="post" asp-action="Create">
     <div class="text-center">
         <h3 class="display-3">
@@ -7,22 +8,26 @@
         </h3>
     </div>
 
-    <div class="form-group">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group my-3">
         <label asp-for="CategoryId"></label>
         <select asp-items="@ViewBag.Categories" asp-for="CategoryId" class="form-control">
         </select>
     </div>
 
-    <div class="form-group">
+    <div class="form-group my-3">
         <label asp-for="ProductName"></label>
         <input class="form-control" asp-for="ProductName" placeholder="Ürün adı giriniz." />
+        <span asp-validation-for="ProductName" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
+    <div class="form-group my-3">
         <label asp-for="Price"></label>
         <input class="form-control" asp-for="Price" placeholder="Ürün fiyatını giriniz." />
+        <span asp-validation-for="Price" class="text-danger"></span>
     </div>
-    <div class="button-group mt-3">
+    <div class="button-group mt-3 my-3">
         <a class="btn btn-primary" asp-controller="Home" asp-action="Index">
             <i class="fa fa-home"></i>
             Ana Sayfa</a>

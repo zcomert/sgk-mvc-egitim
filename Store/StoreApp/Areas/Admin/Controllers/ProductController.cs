@@ -36,10 +36,16 @@ public class ProductController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Create([FromForm] ProductDtoForInsertion model)
     {
-        _manager
-        .ProductService
-        .CreateOneProduct(model);
-        return RedirectToAction("Index");
+        ViewBag.Categories = GetCategorySelectList();
+        
+        if (ModelState.IsValid)
+        {
+            _manager
+            .ProductService
+            .CreateOneProduct(model);
+            return RedirectToAction("Index");
+        }
+        return View(model);
     }
 
     public IActionResult Update(int id)
