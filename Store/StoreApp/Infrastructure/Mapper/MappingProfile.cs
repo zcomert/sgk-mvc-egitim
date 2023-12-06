@@ -10,6 +10,6 @@ public class MappingProfile : Profile
     {
         // Mapping defination
         CreateMap<ProductDtoForInsertion, Product>();
-        CreateMap<ProductDtoForUpdate, Product>();
+        CreateMap<ProductDtoForUpdate, Product>().ReverseMap();
     }
 }

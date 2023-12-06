@@ -54,7 +54,7 @@ public class ProductController : Controller
 
         var prd = _manager
             .ProductService
-            .GetOneProduct(id, false);
+            .GetOneProductDtoForUpdate(id, false);
 
         return View(prd);
     }

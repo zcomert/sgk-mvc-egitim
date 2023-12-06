@@ -67,7 +67,8 @@ public class ProductService : IProductService
         return product;
     }
 
-    public ProductDtoForUpdate? GetOneProductDtoForUpdate(int id, bool isTracking = true)
+    public ProductDtoForUpdate? GetOneProductDtoForUpdate(int id, 
+        bool isTracking = true)
     {
         var product = GetOneProduct(id, isTracking);
         return _mapper.Map<ProductDtoForUpdate>(product);
