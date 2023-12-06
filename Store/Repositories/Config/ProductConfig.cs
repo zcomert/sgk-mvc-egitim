@@ -13,6 +13,12 @@ namespace Repositories.Config
             builder.Property(p => p.ProductName)
             .IsRequired();
 
+            builder.Property(p => p.AtCreatedDate)
+                .HasDefaultValue(DateTime.Now.AddMinutes(1));
+
+            builder.Property(p => p.ImageUrl)
+                .HasDefaultValue("/images/default.jpg");
+
             builder.HasData(
                  new Product()
                  {
