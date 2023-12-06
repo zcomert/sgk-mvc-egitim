@@ -1,16 +1,12 @@
 using Entities.Models;
-using Microsoft.EntityFrameworkCore;
-using Repositories;
-using Repositories.Contracts;
-using Services;
-using Services.Contracts;
 using StoreApp.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllersWithViews();
 builder.Services.ConfigureRepositories(builder.Configuration);
 builder.Services.ConfigureServices();
-builder.Services.AddControllersWithViews();
+builder.Services.ConfigureAutoMapper();
 
 var app = builder.Build();
 app.UseStaticFiles();

@@ -1,3 +1,4 @@
+using Entities.Dtos;
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -34,39 +35,5 @@ public class ProductController : Controller
 
         return View(product);
     }
-    public IActionResult Create()
-    {
-        ViewBag.Categories = GetCategorySelectList();
-        return View(new Product()
-        {
-            ProductName = "Ürünü adını giriniz"
-        });
-    }
 
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public IActionResult Create([FromForm] Product model)
-    {
-        _manager
-        .ProductService
-        .CreateOneProduct(model);
-        return RedirectToAction("Index");
-    }
-    private SelectList GetCategorySelectList()
-    {
-        // Categories sayfaya gitmeli.
-        var categories = _manager
-        .CategoryService
-        .GetAllCategories();
-
-        return new SelectList(categories,
-        "CategoryId",
-        "CategoryName",
-        "1");
-    }
-
-
-    
-
-    
 }

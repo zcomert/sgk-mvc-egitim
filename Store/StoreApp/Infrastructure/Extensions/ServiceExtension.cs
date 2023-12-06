@@ -39,4 +39,9 @@ public static class ServiceExtension
         services.AddScoped<IProductService, ProductService>(); // register
     }
 
+    public static void ConfigureAutoMapper(this IServiceCollection services)
+    {
+        services.AddAutoMapper(typeof(Program));
+    }
+
 }

@@ -1,4 +1,5 @@
-@model Product
+@model ProductDtoForInsertion
+
 <form method="post" asp-action="Create">
     <div class="text-center">
         <h3 class="display-3">
@@ -28,7 +29,8 @@
 
         <a class="btn btn-outline-primary" asp-controller="Product" asp-action="Index">
             <i class="fa fa-list"></i>
-            Ürünler</a>
+            Ürünler
+        </a>
         <input class="btn btn-success" type="submit" value="Gönder" />
 
     </div>
