@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using Entities.Dtos;
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -34,12 +35,22 @@ public class ProductController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Create([FromForm] ProductDtoForInsertion model)
+    public async Task<IActionResult> Create([FromForm] ProductDtoForInsertion model, IFormFile file)
     {
         ViewBag.Categories = GetCategorySelectList();
 
         if (ModelState.IsValid)
         {
+            var path = Path.Combine(Directory.GetCurrentDirectory(),
+                "wwwroot", "images", file.FileName);
+
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            model.ImageUrl = String.Concat("/images/", file.FileName);
+
             _manager
             .ProductService
             .CreateOneProduct(model);
@@ -64,7 +75,7 @@ public class ProductController : Controller
     public IActionResult Update(ProductDtoForUpdate model)
     {
         ViewBag.Categories = GetCategorySelectList();
-        
+
         if (ModelState.IsValid)
         {
             _manager
@@ -73,7 +84,7 @@ public class ProductController : Controller
 
             return RedirectToAction("Index");
         }
-        
+
         return View(model);
     }
 
