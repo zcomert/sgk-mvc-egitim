@@ -13,7 +13,7 @@ public static class ServiceExtension
     /// </summary>
     /// <param name="services">Bu parametre metot çağırsı yapılırken kullanılmaz!</param>
     public static void ConfigureRepositories(this IServiceCollection services,
-        ConfigurationManager configuration)
+        IConfiguration configuration)
     {
         // register
         services.AddScoped<IProductRepository, ProductRepository>();
@@ -28,6 +28,8 @@ public static class ServiceExtension
                 .GetConnectionString("sqliteconnection"),
                 prj => prj.MigrationsAssembly("StoreApp"));
         });
+
+        
     }
 
     public static void ConfigureServices(this IServiceCollection services)

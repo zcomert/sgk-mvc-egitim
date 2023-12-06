@@ -1,6 +1,7 @@
 <h3>Home : Index</h3>
+
 <a asp-controller="Product" asp-action="Index">Ürünler</a> |
-<a asp-controller="Product" asp-action="Create">Ekle</a>
+<a asp-controller="Product" asp-area="Admin" asp-contoller="Product" asp-action="Create">Ekle</a>
 
 @section Header {
     <div>
@@ -9,7 +10,6 @@
     </div>
     <p>Bu alan isteğe bağlı olarak derlenen Header section alanıdır.</p>
 }
-
 
 
 <div>
