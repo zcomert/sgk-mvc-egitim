@@ -4,23 +4,13 @@ using Repositories;
 using Repositories.Contracts;
 using Services;
 using Services.Contracts;
+using StoreApp.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.ConfigureRepositories(builder.Configuration);
+builder.Services.ConfigureServices();
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IProductRepository, ProductRepository>(); // register
-builder.Services.AddScoped<ICategoryRepository, CategoryRepository>(); // register
-builder.Services.AddScoped<IRepositoryManager, RepositoryManager>(); // register
-
-builder.Services.AddScoped<IServiceManager, ServiceManager>(); // register
-builder.Services.AddScoped<ICategoryService, CategoryService>(); // register
-builder.Services.AddScoped<IProductService, ProductService>(); // register
-
-
-builder.Services.AddDbContext<RepositoryContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("sqliteconnection"),
-        prj => prj.MigrationsAssembly("StoreApp")
-    ));
 
 var app = builder.Build();
 app.UseStaticFiles();
