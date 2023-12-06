@@ -63,6 +63,11 @@
 ## 7. Gün
 - Services
 - Areas
+
+## 8. Gün
 - ViewComponents
 - AutoMapper
+- Model Validation
+- Async Tasks
+- File Operations
 
