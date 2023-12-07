@@ -1,9 +1,18 @@
 @page "/demo"
 @model DemoModel
+<div class="text-center">
 
-<h1>
-    Razor Page
-</h1>
-<p>
-    @Model?.FullName
-</p>
+    <h3 class="display-3">
+        Razor Page
+        </h1>
+        <p>
+            @Model?.FullName
+        </p>
+
+        <form method="post" asp-page="/Demo">
+            <div class="form-group">
+                <input name="name" class="form-control my-3" placeholder="Adınızı giriniz" />
+                <button type="submit" class="btn btn-primary my-3">Gönder</button>
+            </div>
+        </form>
+</div>

@@ -11,6 +11,8 @@ builder.Services.ConfigureAutoMapper();
 builder.Services.ConfigureActionFilters();
 builder.Services.ConfigureSession();
 
+builder.Services.AddSingleton<Cart>();
+
 
 var app = builder.Build();
 app.UseStaticFiles();
