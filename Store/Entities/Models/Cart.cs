@@ -8,13 +8,13 @@ public class Cart
         Lines = new List<CartItem>();
     }
 
-    public virtual void AddItem(Product product, int quantity=1)
+    public virtual void AddItem(Product product, int quantity = 1)
     {
         CartItem? line = Lines
-        .FirstOrDefault(cl => 
-            cl.Product.Equals(product.ProductId));
+        .FirstOrDefault(cl =>
+            cl.Product.ProductId.Equals(product.ProductId));
 
-        if(line is null)
+        if (line is null)
         {
             Lines.Add(new CartItem()
             {
@@ -28,9 +28,9 @@ public class Cart
         }
     }
 
-    public void RemoveLine(Product product)
+    public virtual void RemoveLine(Product product)
     {
-        Lines.RemoveAll(p => 
+        Lines.RemoveAll(p =>
             p.Product.ProductId.Equals(product.ProductId));
     }
 

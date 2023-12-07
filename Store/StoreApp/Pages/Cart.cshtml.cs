@@ -22,7 +22,8 @@ public class CartModel : PageModel
 
     }
 
-    public IActionResult OnPost([FromForm] int productId, string returnUrl)
+    public IActionResult OnPost([FromForm] int productId,
+        [FromForm] string returnUrl)
     {
         var prd = _manager
             .ProductService
@@ -32,5 +33,15 @@ public class CartModel : PageModel
 
         // ?returnUrl=...
         return RedirectToPage(new { ReturnUrl = returnUrl });
+    }
+
+    public IActionResult OnPostRemove([FromForm] int productId)
+    {
+        var prd = _manager
+        .ProductService
+        .GetOneProduct(productId);
+
+        Cart.RemoveLine(prd);
+        return Page();
     }
 }

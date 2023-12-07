@@ -8,15 +8,21 @@
             <h5 class="card-title">@Model?.ProductName</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
                 content.</p>
-            <a asp-controller="Product" asp-action="Get" asp-route-id="@Model?.ProductId" class="btn btn-primary">
-                <i class="fa fa-arrow-right"></i>
-                Get Details</a>
 
-            <a asp-controller="Product" asp-action="Update" 
-                asp-route-id="@Model?.ProductId"
-                class="btn btn-outline-primary">
-                <i class="fa fa-arrow-right"></i>
-                Update</a>
+            <div class="form-group">
+
+                <a asp-controller="Product" asp-action="Get" asp-route-id="@Model?.ProductId" class="btn btn-primary">
+                    <i class="fa fa-arrow-right"></i>
+                    Get Details</a>
+
+                <form id="@Model?.ProductId" method="post" asp-page="/Cart">
+                    <input type="hidden" name="productId" value="@Model?.ProductId">
+                    <input type="hidden" name="returnUrl" value="@Context.Request.Path">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-cart-plus"></i>
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
