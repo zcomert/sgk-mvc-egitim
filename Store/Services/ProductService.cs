@@ -45,7 +45,7 @@ public class ProductService : IProductService
     {
         return _manager
                 .ProductRepository
-                .ReadAll(filter,isTracking);
+                .ReadAll(filter, isTracking);
     }
 
     public IEnumerable<Product> GetAllProductsWithDetails()
@@ -55,19 +55,19 @@ public class ProductService : IProductService
         .GetAllProductsWithDetails();
     }
 
-    public Product? GetOneProduct(int id, bool isTracking=true)
+    public Product? GetOneProduct(int id, bool isTracking = true)
     {
         var product = _manager
                     .ProductRepository
                     .Read(prd => prd.ProductId.Equals(id), isTracking);
-        
+
         if (product is null)
             throw new Exception();
 
         return product;
     }
 
-    public ProductDtoForUpdate? GetOneProductDtoForUpdate(int id, 
+    public ProductDtoForUpdate? GetOneProductDtoForUpdate(int id,
         bool isTracking = true)
     {
         var product = GetOneProduct(id, isTracking);
@@ -76,13 +76,13 @@ public class ProductService : IProductService
 
     public void UpdateOneProduct(int id, ProductDtoForUpdate productDto)
     {
-        var prd = GetOneProduct(id,false); // tracking ProductId
+        var prd = GetOneProduct(id, false); // tracking ProductId
 
         prd = _mapper.Map<Product>(productDto);
-        
+
         _manager.ProductRepository.Update(prd);
         _manager.Save();
-        
+
         // if (id.Equals(product.ProductId))
         // {
         //     prd.ProductName = product.ProductName;
@@ -91,6 +91,6 @@ public class ProductService : IProductService
         //     _manager.ProductRepository.Update(prd);
         //     _manager.Save();
         // }
-    
+
     }
 }

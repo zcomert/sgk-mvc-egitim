@@ -39,7 +39,7 @@ public class ProductController : Controller
     {
         ViewBag.Categories = GetCategorySelectList();
 
-        if (ModelState.IsValid)
+        if (file is not null)
         {
             var path = Path.Combine(Directory.GetCurrentDirectory(),
                 "wwwroot", "images", file.FileName);
@@ -48,15 +48,14 @@ public class ProductController : Controller
             {
                 await file.CopyToAsync(stream);
             }
-
             model.ImageUrl = String.Concat("/images/", file.FileName);
-
-            _manager
-            .ProductService
-            .CreateOneProduct(model);
-            return RedirectToAction("Index");
         }
-        return View(model);
+
+        _manager
+        .ProductService
+        .CreateOneProduct(model);
+
+        return RedirectToAction("Index");
     }
 
     public IActionResult Update(int id)
@@ -75,17 +74,11 @@ public class ProductController : Controller
     public IActionResult Update(ProductDtoForUpdate model)
     {
         ViewBag.Categories = GetCategorySelectList();
+        _manager
+            .ProductService
+            .UpdateOneProduct(model.ProductId, model);
 
-        if (ModelState.IsValid)
-        {
-            _manager
-                .ProductService
-                .UpdateOneProduct(model.ProductId, model);
-
-            return RedirectToAction("Index");
-        }
-
-        return View(model);
+        return RedirectToAction("Index");
     }
 
     public IActionResult Delete([FromRoute] int id)

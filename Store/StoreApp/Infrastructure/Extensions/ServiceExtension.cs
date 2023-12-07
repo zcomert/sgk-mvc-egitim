@@ -29,7 +29,7 @@ public static class ServiceExtension
                 prj => prj.MigrationsAssembly("StoreApp"));
         });
 
-        
+
     }
 
     public static void ConfigureServices(this IServiceCollection services)
