@@ -1,0 +1,12 @@
+<div class="text-center my-5">
+    <h3 class="display-3">
+        <i class="fa fa-bug fa-3x text-danger"></i>
+    </h3>
+</div>
+
+<ul class="list-group ">
+    @foreach (String err in ViewData["errors"] as List<String> ?? new List<String>())
+    {
+        <li class="list-group-item text-danger">@err</li>
+    }
+</ul>

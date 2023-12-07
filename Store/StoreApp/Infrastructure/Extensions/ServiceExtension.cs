@@ -3,6 +3,7 @@ using Repositories;
 using Repositories.Contracts;
 using Services;
 using Services.Contracts;
+using StoreApp.Infrastructure.ActionFilters;
 
 namespace StoreApp.Infrastructure.Extensions;
 
@@ -42,6 +43,10 @@ public static class ServiceExtension
     public static void ConfigureAutoMapper(this IServiceCollection services)
     {
         services.AddAutoMapper(typeof(Program));
+    }
+    public static void ConfigureActionFilters(this IServiceCollection services)
+    {
+        services.AddScoped<ModelStateValidator>();
     }
 
 }

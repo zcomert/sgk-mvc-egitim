@@ -7,6 +7,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.ConfigureRepositories(builder.Configuration);
 builder.Services.ConfigureServices();
 builder.Services.ConfigureAutoMapper();
+builder.Services.ConfigureActionFilters();
 
 var app = builder.Build();
 app.UseStaticFiles();

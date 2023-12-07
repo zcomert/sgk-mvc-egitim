@@ -4,6 +4,7 @@ using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Services.Contracts;
+using StoreApp.Infrastructure.ActionFilters;
 
 namespace StoreApp.Areas.Admin.Controllers;
 
@@ -35,8 +36,11 @@ public class ProductController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([FromForm] ProductDtoForInsertion model, IFormFile file)
+    [ServiceFilter(typeof(ModelStateValidator))]
+    public async Task<IActionResult> Create([FromForm] ProductDtoForInsertion model,
+        IFormFile file)
     {
+
         ViewBag.Categories = GetCategorySelectList();
 
         if (file is not null)
@@ -71,6 +75,7 @@ public class ProductController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [ServiceFilter(typeof(ModelStateValidator))]
     public IActionResult Update(ProductDtoForUpdate model)
     {
         ViewBag.Categories = GetCategorySelectList();
