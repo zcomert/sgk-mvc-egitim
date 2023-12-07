@@ -49,4 +49,11 @@ public static class ServiceExtension
         services.AddScoped<ModelStateValidator>();
     }
 
+    public static void ConfigureSession(this IServiceCollection services)
+    {
+        services.AddDistributedMemoryCache();
+        services.AddSession();
+        services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+    }
+
 }

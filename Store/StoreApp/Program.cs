@@ -8,9 +8,12 @@ builder.Services.ConfigureRepositories(builder.Configuration);
 builder.Services.ConfigureServices();
 builder.Services.ConfigureAutoMapper();
 builder.Services.ConfigureActionFilters();
+builder.Services.ConfigureSession();
+
 
 var app = builder.Build();
 app.UseStaticFiles();
+app.UseSession();
 app.UseHttpsRedirection();
 app.UseRouting();
 
