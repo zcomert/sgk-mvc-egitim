@@ -4,6 +4,7 @@ using StoreApp.Infrastructure.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 builder.Services.ConfigureRepositories(builder.Configuration);
 builder.Services.ConfigureServices();
 builder.Services.ConfigureAutoMapper();
@@ -25,6 +26,8 @@ app.UseEndpoints(endpoints =>
         areaName: "Admin",
         pattern: "Admin/{controller=Dashboard}/{action=Index}/{id?}"
     );
+
+    endpoints.MapRazorPages();
 
 
     endpoints.MapControllerRoute(
