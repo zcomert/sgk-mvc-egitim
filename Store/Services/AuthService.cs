@@ -52,4 +52,11 @@ public class AuthService : IAuthService
     {
         return _userManager.Users;
     }
+
+    public async Task<IdentityUser> GetOneUser(string userName)
+    {
+        var user = await _userManager
+            .FindByNameAsync(userName);
+        return user;
+    }
 }

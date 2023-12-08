@@ -5,21 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace StoreApp.Migrations
 {
-    public partial class startIdentity : Migration
+    public partial class endofweek : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<DateTime>(
-                name: "AtCreatedDate",
-                table: "Products",
-                type: "TEXT",
-                nullable: true,
-                defaultValue: new DateTime(2023, 12, 8, 13, 56, 10, 129, DateTimeKind.Local).AddTicks(8902),
-                oldClrType: typeof(DateTime),
-                oldType: "TEXT",
-                oldNullable: true,
-                oldDefaultValue: new DateTime(2023, 12, 6, 15, 37, 44, 639, DateTimeKind.Local).AddTicks(8667));
-
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -57,6 +46,19 @@ namespace StoreApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Categories",
+                columns: table => new
+                {
+                    CategoryId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CategoryName = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categories", x => x.CategoryId);
                 });
 
             migrationBuilder.CreateTable(
@@ -165,41 +167,77 @@ namespace StoreApp.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.InsertData(
-                table: "AspNetRoles",
-                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "004251de-44a0-4656-866b-68f6760b13f3", "a8faae67-f186-4fa0-8e10-4478107cade9", "User", "USER" });
+            migrationBuilder.CreateTable(
+                name: "Products",
+                columns: table => new
+                {
+                    ProductId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CategoryId = table.Column<int>(type: "INTEGER", nullable: true),
+                    ProductName = table.Column<string>(type: "TEXT", nullable: false),
+                    Price = table.Column<decimal>(type: "TEXT", nullable: false),
+                    ImageUrl = table.Column<string>(type: "TEXT", nullable: true, defaultValue: "/images/default.jpg"),
+                    AtCreatedDate = table.Column<DateTime>(type: "TEXT", nullable: true, defaultValue: new DateTime(2023, 12, 8, 16, 5, 8, 129, DateTimeKind.Local).AddTicks(8946))
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Products", x => x.ProductId);
+                    table.ForeignKey(
+                        name: "FK_Products_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "CategoryId");
+                });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "00b4deee-91bb-4c43-bfa3-a9d8b2d062f6", "1bc6584f-ffdc-4120-abe2-01a5ae790df4", "Admin", "ADMIN" });
+                values: new object[] { "33faaa8d-7855-42ec-b548-16eaf8b683c2", "38b2b887-247d-4bc9-a248-ca97daf6830b", "Editor", "EDITOR" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "125d5b41-09f5-491b-9640-aa8f70c245ca", "f979f481-04fe-4460-918b-bbcff2786636", "Editor", "EDITOR" });
+                values: new object[] { "516c99df-0043-41e5-9075-88fd01a7b365", "ba354aa8-8ed9-4420-a27e-f3345773fecf", "Admin", "ADMIN" });
 
-            migrationBuilder.UpdateData(
-                table: "Products",
-                keyColumn: "ProductId",
-                keyValue: 1,
-                column: "AtCreatedDate",
-                value: new DateTime(2023, 12, 8, 13, 56, 10, 129, DateTimeKind.Local).AddTicks(9216));
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "9bc676f8-8f12-4468-b4d6-b9084b3b5b52", "14826411-1c35-4b2d-8a66-4b0bf7cc6e9d", "User", "USER" });
 
-            migrationBuilder.UpdateData(
-                table: "Products",
-                keyColumn: "ProductId",
-                keyValue: 2,
-                column: "AtCreatedDate",
-                value: new DateTime(2023, 12, 8, 13, 56, 10, 129, DateTimeKind.Local).AddTicks(9222));
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[] { 1, "Bilgisayar" });
 
-            migrationBuilder.UpdateData(
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[] { 2, "Elektronik" });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[] { 3, "Telefonlar" });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "CategoryId", "CategoryName" },
+                values: new object[] { 4, "Televizyonlar" });
+
+            migrationBuilder.InsertData(
                 table: "Products",
-                keyColumn: "ProductId",
-                keyValue: 3,
-                column: "AtCreatedDate",
-                value: new DateTime(2023, 12, 8, 13, 56, 10, 129, DateTimeKind.Local).AddTicks(9224));
+                columns: new[] { "ProductId", "AtCreatedDate", "CategoryId", "ImageUrl", "Price", "ProductName" },
+                values: new object[] { 1, new DateTime(2023, 12, 8, 16, 5, 8, 129, DateTimeKind.Local).AddTicks(9255), 1, "/images/default.jpg", 30000m, "Computer" });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "ProductId", "AtCreatedDate", "CategoryId", "ImageUrl", "Price", "ProductName" },
+                values: new object[] { 2, new DateTime(2023, 12, 8, 16, 5, 8, 129, DateTimeKind.Local).AddTicks(9262), 1, "/images/default.jpg", 40000m, "Phone" });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "ProductId", "AtCreatedDate", "CategoryId", "ImageUrl", "Price", "ProductName" },
+                values: new object[] { 3, new DateTime(2023, 12, 8, 16, 5, 8, 129, DateTimeKind.Local).AddTicks(9263), 1, "/images/default.jpg", 1000m, "Mouse" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -237,6 +275,11 @@ namespace StoreApp.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Products_CategoryId",
+                table: "Products",
+                column: "CategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -257,42 +300,16 @@ namespace StoreApp.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Products");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
-            migrationBuilder.AlterColumn<DateTime>(
-                name: "AtCreatedDate",
-                table: "Products",
-                type: "TEXT",
-                nullable: true,
-                defaultValue: new DateTime(2023, 12, 6, 15, 37, 44, 639, DateTimeKind.Local).AddTicks(8667),
-                oldClrType: typeof(DateTime),
-                oldType: "TEXT",
-                oldNullable: true,
-                oldDefaultValue: new DateTime(2023, 12, 8, 13, 56, 10, 129, DateTimeKind.Local).AddTicks(8902));
-
-            migrationBuilder.UpdateData(
-                table: "Products",
-                keyColumn: "ProductId",
-                keyValue: 1,
-                column: "AtCreatedDate",
-                value: new DateTime(2023, 12, 6, 15, 37, 44, 639, DateTimeKind.Local).AddTicks(9075));
-
-            migrationBuilder.UpdateData(
-                table: "Products",
-                keyColumn: "ProductId",
-                keyValue: 2,
-                column: "AtCreatedDate",
-                value: new DateTime(2023, 12, 6, 15, 37, 44, 639, DateTimeKind.Local).AddTicks(9083));
-
-            migrationBuilder.UpdateData(
-                table: "Products",
-                keyColumn: "ProductId",
-                keyValue: 3,
-                column: "AtCreatedDate",
-                value: new DateTime(2023, 12, 6, 15, 37, 44, 639, DateTimeKind.Local).AddTicks(9084));
+            migrationBuilder.DropTable(
+                name: "Categories");
         }
     }
 }

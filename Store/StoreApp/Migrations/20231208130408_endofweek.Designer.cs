@@ -11,8 +11,8 @@ using Repositories;
 namespace StoreApp.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20231208105510_startIdentity")]
-    partial class startIdentity
+    [Migration("20231208130408_endofweek")]
+    partial class endofweek
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -65,7 +65,7 @@ namespace StoreApp.Migrations
                     b.Property<DateTime?>("AtCreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT")
-                        .HasDefaultValue(new DateTime(2023, 12, 8, 13, 56, 10, 129, DateTimeKind.Local).AddTicks(8902));
+                        .HasDefaultValue(new DateTime(2023, 12, 8, 16, 5, 8, 129, DateTimeKind.Local).AddTicks(8946));
 
                     b.Property<int?>("CategoryId")
                         .HasColumnType("INTEGER");
@@ -92,7 +92,7 @@ namespace StoreApp.Migrations
                         new
                         {
                             ProductId = 1,
-                            AtCreatedDate = new DateTime(2023, 12, 8, 13, 56, 10, 129, DateTimeKind.Local).AddTicks(9216),
+                            AtCreatedDate = new DateTime(2023, 12, 8, 16, 5, 8, 129, DateTimeKind.Local).AddTicks(9255),
                             CategoryId = 1,
                             ImageUrl = "/images/default.jpg",
                             Price = 30000m,
@@ -101,7 +101,7 @@ namespace StoreApp.Migrations
                         new
                         {
                             ProductId = 2,
-                            AtCreatedDate = new DateTime(2023, 12, 8, 13, 56, 10, 129, DateTimeKind.Local).AddTicks(9222),
+                            AtCreatedDate = new DateTime(2023, 12, 8, 16, 5, 8, 129, DateTimeKind.Local).AddTicks(9262),
                             CategoryId = 1,
                             ImageUrl = "/images/default.jpg",
                             Price = 40000m,
@@ -110,7 +110,7 @@ namespace StoreApp.Migrations
                         new
                         {
                             ProductId = 3,
-                            AtCreatedDate = new DateTime(2023, 12, 8, 13, 56, 10, 129, DateTimeKind.Local).AddTicks(9224),
+                            AtCreatedDate = new DateTime(2023, 12, 8, 16, 5, 8, 129, DateTimeKind.Local).AddTicks(9263),
                             CategoryId = 1,
                             ImageUrl = "/images/default.jpg",
                             Price = 1000m,
@@ -146,22 +146,22 @@ namespace StoreApp.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "004251de-44a0-4656-866b-68f6760b13f3",
-                            ConcurrencyStamp = "a8faae67-f186-4fa0-8e10-4478107cade9",
+                            Id = "9bc676f8-8f12-4468-b4d6-b9084b3b5b52",
+                            ConcurrencyStamp = "14826411-1c35-4b2d-8a66-4b0bf7cc6e9d",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "125d5b41-09f5-491b-9640-aa8f70c245ca",
-                            ConcurrencyStamp = "f979f481-04fe-4460-918b-bbcff2786636",
+                            Id = "33faaa8d-7855-42ec-b548-16eaf8b683c2",
+                            ConcurrencyStamp = "38b2b887-247d-4bc9-a248-ca97daf6830b",
                             Name = "Editor",
                             NormalizedName = "EDITOR"
                         },
                         new
                         {
-                            Id = "00b4deee-91bb-4c43-bfa3-a9d8b2d062f6",
-                            ConcurrencyStamp = "1bc6584f-ffdc-4120-abe2-01a5ae790df4",
+                            Id = "516c99df-0043-41e5-9075-88fd01a7b365",
+                            ConcurrencyStamp = "ba354aa8-8ed9-4420-a27e-f3345773fecf",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

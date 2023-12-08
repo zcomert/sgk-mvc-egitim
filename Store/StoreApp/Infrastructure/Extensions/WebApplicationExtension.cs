@@ -20,7 +20,11 @@ public static class WebApplicationExtension
             .GetRequiredService<IServiceManager>();
 
 
-        var result = await _manager.AuthService.CreateOneUser(
+        var adminUser = await _manager.AuthService.GetOneUser("Admin");
+
+        if (adminUser is null)
+        {
+            var result = await _manager.AuthService.CreateOneUser(
             new UserDtoForCreation()
             {
                 UserName = userName,
@@ -28,7 +32,8 @@ public static class WebApplicationExtension
                 Password = password,
                 Roles = new HashSet<String>() { "Admin", "Editor", "User" }
             });
-        if (!result.Succeeded)
-            throw new Exception("Default admin has problem.");
+            if (!result.Succeeded)
+                throw new Exception("Default admin has problem.");
+        }
     }
 }
