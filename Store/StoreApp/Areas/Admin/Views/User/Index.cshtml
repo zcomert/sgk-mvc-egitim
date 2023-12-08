@@ -1,0 +1,13 @@
+@model IEnumerable<IdentityUser>
+
+
+<div class="text-center my-5 border-bottom">
+    <div class="display-6">Users</div>
+</div>
+
+<ul class="list-group my-5">
+    @foreach (var user in Model)
+    {
+        <li class="list-group-item">@user?.UserName</li>
+    }
+</ul>

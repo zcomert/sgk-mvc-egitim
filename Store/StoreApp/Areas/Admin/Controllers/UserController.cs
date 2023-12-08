@@ -4,11 +4,11 @@ using Services.Contracts;
 namespace StoreApp.Areas.Admin.Controllers;
 
 [Area("Admin")]
-public class RoleController : Controller
+public class UserController : Controller
 {
     private readonly IServiceManager _manager;
 
-    public RoleController(IServiceManager manager)
+    public UserController(IServiceManager manager)
     {
         _manager = manager;
     }
@@ -17,8 +17,7 @@ public class RoleController : Controller
     {
         var model = _manager
             .AuthService
-            .GetAllRoles();
+            .GetAllUsers();
         return View(model);
-
     }
 }
