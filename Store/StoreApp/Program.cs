@@ -1,5 +1,6 @@
 using Entities.Models;
 using StoreApp.Infrastructure.Extensions;
+using StoreApp.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,7 @@ builder.Services.ConfigureAutoMapper();
 builder.Services.ConfigureActionFilters();
 builder.Services.ConfigureSession();
 
-builder.Services.AddSingleton<Cart>();
+builder.Services.AddScoped<Cart>(c => SessionCart.GetCard(c));
 
 
 var app = builder.Build();

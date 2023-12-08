@@ -34,7 +34,7 @@ public class Cart
             p.Product.ProductId.Equals(product.ProductId));
     }
 
-    public void Clear() => Lines.Clear();
+    public virtual void Clear() => Lines.Clear();
 
     public decimal CalculateTotalValue()
     {
