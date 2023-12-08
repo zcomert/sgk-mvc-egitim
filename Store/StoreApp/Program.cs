@@ -41,4 +41,5 @@ app.UseEndpoints(endpoints =>
 
 });
 
+app.UseDefaultAdmin();
 app.Run();

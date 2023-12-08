@@ -20,6 +20,12 @@ public class AuthService : IAuthService
         _mapper = mapper;
     }
 
+    public async Task<IdentityResult> AddRoles(IdentityUser user, 
+        HashSet<string> roles)
+    {
+        return await _userManager.AddToRolesAsync(user, roles);
+    }
+
     public async Task<IdentityResult> CreateOneUser(UserDtoForCreation userDto)
     {
         var user = _mapper.Map<IdentityUser>(userDto);
@@ -29,8 +35,7 @@ public class AuthService : IAuthService
         if (!result.Succeeded)
             throw new Exception();
 
-        var roleResult =
-         await _userManager.AddToRolesAsync(user, userDto.Roles);
+        var roleResult = await AddRoles(user, userDto.Roles);
         
         if (!roleResult.Succeeded)
             throw new Exception();
