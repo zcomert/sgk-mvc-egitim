@@ -12,7 +12,8 @@ builder.Services.ConfigureAutoMapper();
 builder.Services.ConfigureActionFilters();
 builder.Services.ConfigureSession();
 
-builder.Services.AddScoped<Cart>(c => SessionCart.GetCard(c));
+builder.Services.AddScoped<Cart>(
+    c => SessionCart.GetCard(c));
 
 
 var app = builder.Build();
