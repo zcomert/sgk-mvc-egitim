@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Repositories;
 using Repositories.Contracts;
@@ -52,8 +53,29 @@ public static class ServiceExtension
     public static void ConfigureSession(this IServiceCollection services)
     {
         services.AddDistributedMemoryCache();
-        services.AddSession();
+        services.AddSession(options =>
+        {
+            options.IdleTimeout = TimeSpan.FromMinutes(10);
+            options.Cookie.Name = "StoreApp";
+        });
         services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+
     }
+
+    public static void ConfigureIdentity(this IServiceCollection services)
+    {
+        services.AddIdentity<IdentityUser, IdentityRole>(options =>
+        {
+            options.SignIn.RequireConfirmedEmail = false;
+            options.User.RequireUniqueEmail = true;
+            options.Password.RequireDigit = false;
+            options.Password.RequiredLength = 6;
+            options.Password.RequireLowercase = false;
+            options.Password.RequireUppercase = false;
+        })
+        .AddEntityFrameworkStores<RepositoryContext>();
+    }
+
 
 }

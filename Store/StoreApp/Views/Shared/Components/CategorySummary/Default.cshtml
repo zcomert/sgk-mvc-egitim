@@ -1,0 +1,16 @@
+@model int
+<div class="container mt-5">
+    <div class="card bg-danger text-white">
+        <div class="card-body text-center">
+            <h1 class="display-4">@Model</h1>
+        </div>
+        <div class="card-footer">
+            <a class="card-link text-white" asp-controller="Category" asp-action="Index">
+                <i class="fa fa-list"></i>
+                Katoriler</a>
+            <a class="card-link text-white" asp-controller="Category" asp-action="Create">
+                <i class="fa fa-plus"></i>
+                Yeni kategori ekle</a>
+        </div>
+    </div>
+</div>
