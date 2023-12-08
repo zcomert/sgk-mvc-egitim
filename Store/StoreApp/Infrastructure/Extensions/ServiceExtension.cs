@@ -39,6 +39,7 @@ public static class ServiceExtension
         services.AddScoped<IServiceManager, ServiceManager>(); // register
         services.AddScoped<ICategoryService, CategoryService>(); // register
         services.AddScoped<IProductService, ProductService>(); // register
+        services.AddScoped<IAuthService, AuthService>(); // register
     }
 
     public static void ConfigureAutoMapper(this IServiceCollection services)
