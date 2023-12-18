@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "8cFRrvHY9MjV5T/dv9+5OHIOnMrJ6lunSPUET8TN39m6gwINEVZ+Q0SsXLbJM/ZjxN/dvyyri3zoL2sokqxTpg==",
+  "success": true,
+  "projectFilePath": "D:\\mvc-egitim\\api\\StoreApi\\StoreApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\zafer\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\zafer\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\zafer\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\zafer\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\zafer\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\zafer\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
