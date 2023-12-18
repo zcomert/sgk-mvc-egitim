@@ -7,6 +7,18 @@ namespace StoreApi.Controllers;
 [Route("api/books")]
 public class BooksController : ControllerBase
 {
+    [HttpDelete]
+    public IActionResult DeleteAllBooks()
+    {
+        return NoContent(); // 204
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult DeleteOneBook([FromRoute(Name = "id")] int id)
+    {
+        return NoContent(); // 204
+    }
+
     [HttpPut("{id}")]
     public IActionResult UpdateOneBook([FromRoute(Name = "id")] int id,
     [FromBody] Book book)
