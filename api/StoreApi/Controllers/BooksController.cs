@@ -7,16 +7,23 @@ namespace StoreApi.Controllers;
 [Route("api/books")]
 public class BooksController : ControllerBase
 {
+    [HttpPost] // api/books
+    public IActionResult CreateOneBook([FromBody] Book book)
+    {
+        return Created($"api/books/{book.Id}", book);
+    }
 
     [HttpGet]
-    public List<Book> GetAllBooks()
+    public IActionResult GetAllBooks()
     {
-        return new List<Book>()
+        var model = new List<Book>()
         {
             new Book(){Id=1, Title="Olasılıksız", Price=125},
             new Book(){Id=2, Title="Mesnevi", Price=225},
             new Book(){Id=3, Title="İnsan ve Fare", Price=25}
         };
+
+        return Ok(model);
     }
 
     [HttpGet("{id:int}")]
@@ -39,7 +46,7 @@ public class BooksController : ControllerBase
     }
 
     // api/books/{name}
-    [HttpGet("{name:string}")]
+    [HttpGet("{name}")]
     public String Greeting([FromRoute] string name)
     {
         return $"Merhaba {name}";
