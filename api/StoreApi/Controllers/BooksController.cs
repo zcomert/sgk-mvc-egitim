@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using StoreApi.InMemoryRepositories;
 using StoreApi.Models;
 
 namespace StoreApi.Controllers;
@@ -30,7 +31,15 @@ public class BooksController : ControllerBase
     [HttpPost] // api/books
     public IActionResult CreateOneBook([FromBody] Book book)
     {
-        return Created($"api/books/{book.Id}", book);
+        try
+        {
+            InMemoryBookRepository.Add(book);
+            return Created($"api/books/{book.Id}", book);
+        }
+        catch (System.Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
     }
 
     [HttpGet]
