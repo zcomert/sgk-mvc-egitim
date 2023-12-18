@@ -7,6 +7,14 @@ namespace StoreApi.Controllers;
 [Route("api/books")]
 public class BooksController : ControllerBase
 {
+    [HttpPut("{id}")]
+    public IActionResult UpdateOneBook([FromRoute(Name = "id")] int id,
+    [FromBody] Book book)
+    {
+        return Ok(book);
+    }
+
+
     [HttpPost] // api/books
     public IActionResult CreateOneBook([FromBody] Book book)
     {
