@@ -11,6 +11,7 @@ public class BooksController : ControllerBase
     [HttpDelete]
     public IActionResult DeleteAllBooks()
     {
+        InMemoryBookRepository.DeleteAll();
         return NoContent(); // 204
     }
 

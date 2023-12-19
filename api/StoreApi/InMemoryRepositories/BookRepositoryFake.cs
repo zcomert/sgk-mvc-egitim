@@ -2,21 +2,21 @@ using StoreApi.Models;
 
 namespace StoreApi.InMemoryRepositories;
 
-public static class InMemoryBookRepository
+public class BookRepositoryFake 
 {
-    public static IEnumerable<Book> Books => _books;
-    private static List<Book> _books;
-    static InMemoryBookRepository()
+    public IEnumerable<Book> Books => _books;
+    private List<Book> _books;
+    public BookRepositoryFake()
     {
         _books = new List<Book>();
     }
 
-    public static void Add(Book book)
+    public void Add(Book book)
     {
         _books.Add(book);
     }
 
-    public static Book? GetOne(int id)
+    public Book? GetOne(int id)
     {
         var book = _books
             .SingleOrDefault(b => b.Id.Equals(id));
@@ -25,7 +25,7 @@ public static class InMemoryBookRepository
         return book;
     }
 
-    public static Book UpdateBook(int id, Book book)
+    public Book UpdateBook(int id, Book book)
     {
         // kitap gerçekten var mı?
         var entity = GetOne(id);
@@ -39,12 +39,12 @@ public static class InMemoryBookRepository
         return entity;
     }
 
-    public static void DeleteOne(int id)
+    public void DeleteOne(int id)
     {
         var book = GetOne(id);
         _books.Remove(book);
     }
-    public static void DeleteAll()
+    public void DeleteAll()
     {
         _books.Clear();
     }
