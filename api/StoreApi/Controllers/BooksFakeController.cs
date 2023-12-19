@@ -47,7 +47,7 @@ public class BooksFakeController : ControllerBase
         try
         {
             _fakeBookRepositoy.Add(book);
-            return NoContent();
+            return Created($"/api/books/{book.Id}", book);
         }
         catch (System.Exception)
         {
