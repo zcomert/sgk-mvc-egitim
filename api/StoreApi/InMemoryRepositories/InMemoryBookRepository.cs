@@ -18,13 +18,21 @@ public static class InMemoryBookRepository
 
     public static Book? GetOne(int id)
     {
-        return _books
+        var book = _books
             .SingleOrDefault(b => b.Id.Equals(id));
+        if (book is null)
+            throw new Exception($"Book nok found: Id : {id}");
+        return book;
     }
 
     public static Book UpdateBook(int id, Book book)
     {
         // kitap gerçekten var mı?
-        // varsa güncelle yoksa hata fırlat!
+        var entity = GetOne(id);
+
+        entity.Title = book.Title;
+        entity.Price = book.Price;
+
+        return entity;
     }
 }

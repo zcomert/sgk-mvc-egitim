@@ -24,7 +24,8 @@ public class BooksController : ControllerBase
     public IActionResult UpdateOneBook([FromRoute(Name = "id")] int id,
     [FromBody] Book book)
     {
-        return Ok(book);
+        Book? updatedBook = InMemoryBookRepository.UpdateBook(id, book);
+        return Ok(updatedBook);
     }
 
 
