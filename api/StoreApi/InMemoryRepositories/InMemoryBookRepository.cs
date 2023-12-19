@@ -30,9 +30,18 @@ public static class InMemoryBookRepository
         // kitap gerçekten var mı?
         var entity = GetOne(id);
 
+        if (!book.Id.Equals(id))
+            throw new Exception("Ids could not been matched.");
+
         entity.Title = book.Title;
         entity.Price = book.Price;
 
         return entity;
+    }
+
+    public static void DeleteOne(int id)
+    {
+        var book = GetOne(id);
+        _books.Remove(book);
     }
 }

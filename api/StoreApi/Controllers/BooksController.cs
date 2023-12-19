@@ -17,6 +17,7 @@ public class BooksController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult DeleteOneBook([FromRoute(Name = "id")] int id)
     {
+        InMemoryBookRepository.DeleteOne(id);
         return NoContent(); // 204
     }
 
