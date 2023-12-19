@@ -67,7 +67,11 @@ public class BooksFakeController : ControllerBase
     {
         try
         {
-            return Ok(_fakeBookRepositoy.UpdateBook(id, book));
+            if (ModelState.IsValid)
+            {
+                return Ok(_fakeBookRepositoy.UpdateBook(id, book));
+            }
+            return BadRequest(ModelState);
         }
         catch (System.Exception)
         {
