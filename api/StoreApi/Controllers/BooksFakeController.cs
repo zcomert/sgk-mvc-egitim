@@ -63,7 +63,33 @@ public class BooksFakeController : ControllerBase
         try
         {
             return Ok(_fakeBookRepositoy.UpdateBook(id, book));
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
+    }
 
+    [HttpDelete]
+    public IActionResult DeleteAll()
+    {
+        try
+        {
+            _fakeBookRepositoy.DeleteAll();
+            return NoContent(); // 204
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
+    }
+    [HttpDelete("{id:int}")]
+    public IActionResult DeleteOneBook([FromRoute(Name = "id")] int id)
+    {
+        try
+        {
+            _fakeBookRepositoy.DeleteOne(id);
+            return NoContent(); // 204
         }
         catch (System.Exception)
         {
