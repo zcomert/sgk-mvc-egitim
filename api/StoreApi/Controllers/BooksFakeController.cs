@@ -46,8 +46,13 @@ public class BooksFakeController : ControllerBase
     {
         try
         {
-            _fakeBookRepositoy.Add(book);
-            return Created($"/api/books/{book.Id}", book);
+            if (ModelState.IsValid)
+            {
+                _fakeBookRepositoy.Add(book);
+                return Created($"/api/books/{book.Id}", book);
+            }
+            return BadRequest(ModelState);
+
         }
         catch (System.Exception)
         {
@@ -83,7 +88,7 @@ public class BooksFakeController : ControllerBase
             throw;
         }
     }
-    
+
     [HttpDelete("{id:int}")]
     public IActionResult DeleteOneBook([FromRoute(Name = "id")] int id)
     {
