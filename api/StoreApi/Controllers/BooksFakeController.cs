@@ -83,6 +83,7 @@ public class BooksFakeController : ControllerBase
             throw;
         }
     }
+    
     [HttpDelete("{id:int}")]
     public IActionResult DeleteOneBook([FromRoute(Name = "id")] int id)
     {
