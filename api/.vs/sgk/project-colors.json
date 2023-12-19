@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "babc0b0c-9113-417b-86e4-d72364e5eab6": {
+      "ProjectGuid": "babc0b0c-9113-417b-86e4-d72364e5eab6",
+      "DisplayName": "StoreApi",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

@@ -35,9 +35,9 @@ public class BooksFakeController : ControllerBase
         {
             return Ok(_fakeBookRepositoy.GetOne(id));
         }
-        catch (System.Exception)
+        catch (System.Exception ex)
         {
-            throw;
+            throw new Exception(ex.Message);
         }
     }
 
