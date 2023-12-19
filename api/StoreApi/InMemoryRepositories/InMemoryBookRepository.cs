@@ -44,4 +44,8 @@ public static class InMemoryBookRepository
         var book = GetOne(id);
         _books.Remove(book);
     }
+    public static void DeleteAll()
+    {
+        
+    }
 }
