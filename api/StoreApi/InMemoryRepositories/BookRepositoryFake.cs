@@ -1,3 +1,4 @@
+using Entities.Exceptions;
 using StoreApi.Models;
 
 namespace StoreApi.InMemoryRepositories;
@@ -21,7 +22,7 @@ public class BookRepositoryFake
         var book = _books
             .SingleOrDefault(b => b.Id.Equals(id));
         if (book is null)
-            throw new Exception($"Book nok found: Id : {id}");
+            throw new BookNotFoundException(id);
         return book;
     }
 
