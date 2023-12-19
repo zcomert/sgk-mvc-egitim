@@ -15,4 +15,16 @@ public static class InMemoryBookRepository
     {
         _books.Add(book);
     }
+
+    public static Book? GetOne(int id)
+    {
+        return _books
+            .SingleOrDefault(b => b.Id.Equals(id));
+    }
+
+    public static Book UpdateBook(int id, Book book)
+    {
+        // kitap gerçekten var mı?
+        // varsa güncelle yoksa hata fırlat!
+    }
 }

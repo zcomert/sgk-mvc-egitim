@@ -45,25 +45,32 @@ public class BooksController : ControllerBase
     [HttpGet]
     public IActionResult GetAllBooks()
     {
-        var model = new List<Book>()
+        try
         {
-            new Book(){Id=1, Title="Olasılıksız", Price=125},
-            new Book(){Id=2, Title="Mesnevi", Price=225},
-            new Book(){Id=3, Title="İnsan ve Fare", Price=25}
-        };
-
-        return Ok(model);
+            return Ok(InMemoryBookRepository.Books);
+        }
+        catch (System.Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
     }
 
     [HttpGet("{id:int}")]
-    public Book GetOneBook([FromRoute] int id)
+    public IActionResult GetOneBook([FromRoute] int id)
     {
-        return new Book()
+        try
         {
-            Id = id,
-            Title = "Devlet",
-            Price = 100
-        };
+            var book = InMemoryBookRepository.GetOne(id);
+            if (book is null)
+            {
+                throw new Exception($"Book with id:{id} not found.");
+            }
+            return Ok(book);
+        }
+        catch (System.Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
     }
 
     // ./api/books
