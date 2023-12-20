@@ -1,8 +1,6 @@
 D:\mvc-egitim\api\Entities\bin\Debug\net6.0\Entities.deps.json
 D:\mvc-egitim\api\Entities\bin\Debug\net6.0\Entities.dll
-D:\mvc-egitim\api\Entities\bin\Debug\net6.0\ref\Entities.dll
 D:\mvc-egitim\api\Entities\bin\Debug\net6.0\Entities.pdb
-D:\mvc-egitim\api\Entities\obj\Debug\net6.0\Entities.csproj.AssemblyReference.cache
 D:\mvc-egitim\api\Entities\obj\Debug\net6.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
 D:\mvc-egitim\api\Entities\obj\Debug\net6.0\Entities.AssemblyInfoInputs.cache
 D:\mvc-egitim\api\Entities\obj\Debug\net6.0\Entities.AssemblyInfo.cs
@@ -10,3 +8,5 @@ D:\mvc-egitim\api\Entities\obj\Debug\net6.0\Entities.csproj.CoreCompileInputs.ca
 D:\mvc-egitim\api\Entities\obj\Debug\net6.0\Entities.dll
 D:\mvc-egitim\api\Entities\obj\Debug\net6.0\ref\Entities.dll
 D:\mvc-egitim\api\Entities\obj\Debug\net6.0\Entities.pdb
+D:\mvc-egitim\api\Entities\obj\Debug\net6.0\Entities.sourcelink.json
+D:\mvc-egitim\api\Entities\obj\Debug\net6.0\refint\Entities.dll

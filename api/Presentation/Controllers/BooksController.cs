@@ -1,3 +1,4 @@
+using Entities.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Repositories;
 
@@ -17,7 +18,34 @@ public class BooksController : ControllerBase
     [HttpGet]
     public IActionResult GetAllBooks()
     {
-        var model = _context.Books;
-        return Ok(model);
+        try
+        {
+            var model = _context.Books;
+            return Ok(model);
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
+    }
+    
+    [HttpGet("{id:int}")]
+    public IActionResult GetOneBook(int id)
+    {
+        try
+        {
+            var model = _context
+                        .Books
+                        .SingleOrDefault(b => b.Id.Equals(id));
+
+            if (model is null)
+                throw new BookNotFoundException(id); // 400
+            
+            return Ok(200);
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
     }
 }
