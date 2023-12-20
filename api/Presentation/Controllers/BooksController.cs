@@ -1,4 +1,5 @@
 using Entities.Exceptions;
+using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Repositories;
 
@@ -28,9 +29,9 @@ public class BooksController : ControllerBase
             throw;
         }
     }
-    
+
     [HttpGet("{id:int}")]
-    public IActionResult GetOneBook(int id)
+    public IActionResult GetOneBook([FromRoute(Name = "id")] int id)
     {
         try
         {
@@ -40,7 +41,7 @@ public class BooksController : ControllerBase
 
             if (model is null)
                 throw new BookNotFoundException(id); // 400
-            
+
             return Ok(200);
         }
         catch (System.Exception)
@@ -48,4 +49,25 @@ public class BooksController : ControllerBase
             throw;
         }
     }
+
+    [HttpPost]
+    public IActionResult CreateOneBook([FromBody] Book book)
+    {
+        try
+        {
+            if (book is null)
+                return BadRequest();
+
+            _context.Books.Add(book);
+            _context.SaveChanges();
+
+            return Created($"/api/books/{book.Id}", book);
+        }
+        catch (System.Exception)
+        {
+
+            throw;
+        }
+    }
+
 }
