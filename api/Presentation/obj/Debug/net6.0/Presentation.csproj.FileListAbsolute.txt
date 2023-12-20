@@ -1,0 +1,5 @@
+D:\mvc-egitim\api\Presentation\obj\Debug\net6.0\Presentation.csproj.AssemblyReference.cache
+D:\mvc-egitim\api\Presentation\obj\Debug\net6.0\Presentation.GeneratedMSBuildEditorConfig.editorconfig
+D:\mvc-egitim\api\Presentation\obj\Debug\net6.0\Presentation.AssemblyInfoInputs.cache
+D:\mvc-egitim\api\Presentation\obj\Debug\net6.0\Presentation.AssemblyInfo.cs
+D:\mvc-egitim\api\Presentation\obj\Debug\net6.0\Presentation.csproj.CoreCompileInputs.cache

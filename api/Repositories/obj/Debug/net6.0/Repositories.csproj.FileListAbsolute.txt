@@ -1,6 +1,7 @@
 D:\mvc-egitim\api\Repositories\bin\Debug\net6.0\Repositories.deps.json
 D:\mvc-egitim\api\Repositories\bin\Debug\net6.0\Repositories.runtimeconfig.json
 D:\mvc-egitim\api\Repositories\bin\Debug\net6.0\Repositories.dll
+D:\mvc-egitim\api\Repositories\bin\Debug\net6.0\ref\Repositories.dll
 D:\mvc-egitim\api\Repositories\bin\Debug\net6.0\Repositories.pdb
 D:\mvc-egitim\api\Repositories\bin\Debug\net6.0\Entities.dll
 D:\mvc-egitim\api\Repositories\bin\Debug\net6.0\Entities.pdb
@@ -14,5 +15,3 @@ D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\Repositories.dll
 D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\ref\Repositories.dll
 D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\Repositories.pdb
 D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\Repositories.genruntimeconfig.cache
-D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\Repositories.sourcelink.json
-D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\refint\Repositories.dll
