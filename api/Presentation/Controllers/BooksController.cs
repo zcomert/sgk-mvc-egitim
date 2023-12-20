@@ -85,14 +85,13 @@ public class BooksController : ControllerBase
 
             _context.Books.Update(book);
             _context.SaveChanges();
+            return Ok(book);    // 200
 
         }
         catch (System.Exception)
         {
-
             throw;
         }
-        return Ok();
     }
 
 }
