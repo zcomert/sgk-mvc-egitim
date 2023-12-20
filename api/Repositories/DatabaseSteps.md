@@ -13,3 +13,5 @@
 6. IoC Kaydının Yapılması
 7. appsettings.json'da ConnectionString tanımlanmalı.
 8. Seed Data tanımının yapılması
+9. Assembly üzerinden Configuration sınıflarının uygulanması 
+10. Migration alınmalı.
