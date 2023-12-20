@@ -42,7 +42,7 @@ public class BooksController : ControllerBase
             if (model is null)
                 throw new BookNotFoundException(id); // 400
 
-            return Ok(200);
+            return Ok(model);
         }
         catch (System.Exception)
         {
@@ -68,6 +68,31 @@ public class BooksController : ControllerBase
 
             throw;
         }
+    }
+
+
+    [HttpPut("{id:int}")]
+    public IActionResult UpdateOneBook([FromRoute(Name = "id")] int id,
+        [FromBody] Book book)
+    {
+        try
+        {
+            if (!id.Equals(book.Id))
+                return BadRequest(); // 400
+
+            if (book is null)
+                return UnprocessableEntity(); // 422
+
+            _context.Books.Update(book);
+            _context.SaveChanges();
+
+        }
+        catch (System.Exception)
+        {
+
+            throw;
+        }
+        return Ok();
     }
 
 }
