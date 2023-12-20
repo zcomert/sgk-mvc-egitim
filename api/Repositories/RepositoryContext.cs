@@ -1,6 +1,15 @@
-﻿namespace Repositories;
+﻿using Entities.Models;
+using Microsoft.EntityFrameworkCore;
 
-public class RepositoryContext
+namespace Repositories;
+
+public class RepositoryContext :DbContext
 {
+    public RepositoryContext(DbContextOptions<RepositoryContext> options)
+        : base(options)
+    {
+        
+    }
 
+    public DbSet<Book> Books { get; set; }
 }

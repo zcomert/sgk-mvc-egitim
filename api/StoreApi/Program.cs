@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using Repositories;
 using StoreApi.InMemoryRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<BookRepositoryFake>();
+
+builder.Services.AddDbContext<RepositoryContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("sqlconnection"));
+});
 
 var app = builder.Build();
 
