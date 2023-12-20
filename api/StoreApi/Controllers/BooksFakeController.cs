@@ -1,6 +1,6 @@
+using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using StoreApi.InMemoryRepositories;
-using StoreApi.Models;
 
 namespace StoreApi.Controllers;
 

@@ -1,5 +1,5 @@
 using Entities.Exceptions;
-using StoreApi.Models;
+using Entities.Models;
 
 namespace StoreApi.InMemoryRepositories;
 

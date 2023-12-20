@@ -33,3 +33,8 @@ D:\mvc-egitim\api\StoreApi\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTa
 D:\mvc-egitim\api\StoreApi\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.StoreApi.props
 D:\mvc-egitim\api\StoreApi\obj\Debug\net6.0\staticwebassets.pack.json
 D:\mvc-egitim\api\StoreApi\obj\Debug\net6.0\refint\StoreApi.dll
+D:\mvc-egitim\api\StoreApi\bin\Debug\net6.0\Humanizer.dll
+D:\mvc-egitim\api\StoreApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+D:\mvc-egitim\api\StoreApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\mvc-egitim\api\StoreApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\mvc-egitim\api\StoreApi\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll

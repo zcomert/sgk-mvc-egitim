@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using StoreApi.InMemoryRepositories;
-using StoreApi.Models;
+using Entities.Models;
 
 namespace StoreApi.Controllers;
 
 [ApiController]
-[Route("api/books")]
-public class BooksController : ControllerBase
+[Route("api/staticbooks")]
+public class StaticBooksController : ControllerBase
 {
     [HttpDelete]
     public IActionResult DeleteAllBooks()
