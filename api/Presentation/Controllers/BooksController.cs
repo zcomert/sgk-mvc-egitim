@@ -94,4 +94,27 @@ public class BooksController : ControllerBase
         }
     }
 
+    [HttpDelete("{id:int}")]
+    public IActionResult DeleteOneBook([FromRoute(Name = "id")] int id)
+    {
+        try
+        {
+            var book = _context
+                    .Books
+                    .SingleOrDefault(b => b.Id.Equals(id));
+
+            if (book is null)
+                throw new BookNotFoundException(id);
+
+            _context.Remove(book);
+            _context.SaveChanges();
+            return NoContent(); // 204
+        }
+        catch (System.Exception)
+        {
+
+            throw;
+        }
+        return NoContent(); // 204
+    }
 }
