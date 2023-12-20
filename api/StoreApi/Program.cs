@@ -14,7 +14,10 @@ builder.Services.AddSingleton<BookRepositoryFake>();
 
 builder.Services.AddDbContext<RepositoryContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("sqlconnection"));
+    options.UseSqlServer(builder
+    .Configuration
+    .GetConnectionString("sqlconnection"),
+    prj => prj.MigrationsAssembly("StoreApi"));
 });
 
 var app = builder.Build();

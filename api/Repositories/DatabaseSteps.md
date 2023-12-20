@@ -11,3 +11,5 @@
 4. DbContext içerisinde yapıcı metodun oluşturulması.
 5. DbSet<T> tanımların yapılması
 6. IoC Kaydının Yapılması
+7. appsettings.json'da ConnectionString tanımlanmalı.
+8. Seed Data tanımının yapılması
