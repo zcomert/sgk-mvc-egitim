@@ -7,7 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services
-    .AddControllers()
+    .AddControllers(config =>
+    {
+        config.RespectBrowserAcceptHeader = true;
+        config.ReturnHttpNotAcceptable = true; //406
+    })
+    .AddXmlDataContractSerializerFormatters()
     .AddApplicationPart(typeof(Presentation.AssemblyReference).Assembly);
 
 
