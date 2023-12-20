@@ -104,7 +104,7 @@ public class BooksController : ControllerBase
                     .SingleOrDefault(b => b.Id.Equals(id));
 
             if (book is null)
-                throw new BookNotFoundException(id);
+                throw new BookNotFoundException(id); // 404
 
             _context.Remove(book);
             _context.SaveChanges();
@@ -115,6 +115,22 @@ public class BooksController : ControllerBase
 
             throw;
         }
-        return NoContent(); // 204
     }
+
+
+    [HttpDelete]
+    public IActionResult DeleteAll()
+    {
+        try
+        {
+            _context.Books.RemoveRange(_context.Books.ToArray());
+            _context.SaveChanges();
+            return NoContent(); // 204
+        }
+        catch (System.Exception)
+        {
+            throw;
+        }
+    }
+
 }
