@@ -16,7 +16,7 @@ public class BookConfig : IEntityTypeConfiguration<Book>
         builder.HasData(
             new Book() { Id=1, Title="Mesnevi", Price = 300},    
             new Book() { Id=2, Title="Devlet", Price = 250},
-            new Book() { Id=3, Title="Devlet", Price = 250},
+            new Book() { Id=3, Title="Sefiller", Price = 350}
         );
     }
 }
