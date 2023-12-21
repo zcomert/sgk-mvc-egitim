@@ -31,6 +31,8 @@ builder.Services.AddDbContext<RepositoryContext>(options =>
     prj => prj.MigrationsAssembly("StoreApi"));
 });
 
+builder.Services.ConfigureVersioning();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
