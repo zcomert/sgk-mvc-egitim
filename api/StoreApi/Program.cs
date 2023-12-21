@@ -32,6 +32,7 @@ builder.Services.AddDbContext<RepositoryContext>(options =>
 });
 
 builder.Services.ConfigureVersioning();
+builder.Services.ConfigureRepositories();
 
 var app = builder.Build();
 
