@@ -1,4 +1,5 @@
 using Entities;
+using Entities.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
 
 namespace StoreApi.Infrastructure.Extensions;
@@ -16,7 +17,12 @@ public static class ExceptionMiddlewareExtension
 
                 if (contextFeature is not null) // hata var demek
                 {
-                    context.Response.StatusCode = StatusCodes.Status500InternalServerError; // 500
+                    context.Response.StatusCode = contextFeature.Error switch
+                    {
+                        NotFoundExceptions => StatusCodes.Status404NotFound,
+                        _ => StatusCodes.Status500InternalServerError
+                    };
+
                     await context.Response.WriteAsync(new ErrorDetails()
                     {
                         StatusCode = context.Response.StatusCode,
