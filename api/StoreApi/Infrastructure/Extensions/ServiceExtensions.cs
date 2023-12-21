@@ -12,14 +12,13 @@ public static class ServiceExtensions
         {
             options.ReportApiVersions = true;
             options.AssumeDefaultVersionWhenUnspecified = true;
-            options.DefaultApiVersion = new ApiVersion(1,0);
+            options.DefaultApiVersion = new ApiVersion(1, 0);
 
-            options.ApiVersionReader = 
+            options.ApiVersionReader =
                 new HeaderApiVersionReader("api-version");
 
             options.Conventions.Controller<BooksController>()
                 .HasApiVersion(new ApiVersion(1, 0));
-
         });
     }
 }
