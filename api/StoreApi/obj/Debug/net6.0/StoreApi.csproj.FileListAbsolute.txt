@@ -72,3 +72,4 @@ D:\mvc-egitim\api\StoreApi\obj\Debug\net6.0\refint\StoreApi.dll
 D:\mvc-egitim\api\StoreApi\obj\Debug\net6.0\StoreApi.pdb
 D:\mvc-egitim\api\StoreApi\obj\Debug\net6.0\StoreApi.genruntimeconfig.cache
 D:\mvc-egitim\api\StoreApi\obj\Debug\net6.0\ref\StoreApi.dll
+D:\mvc-egitim\api\StoreApi\obj\Debug\net6.0\StoreApi.MvcApplicationPartsAssemblyInfo.cs

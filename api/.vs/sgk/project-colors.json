@@ -5,7 +5,22 @@
       "ProjectGuid": "babc0b0c-9113-417b-86e4-d72364e5eab6",
       "DisplayName": "StoreApi",
       "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "efd1aed1-7a15-4639-ba8c-56036dbf6a78": {
+      "ProjectGuid": "efd1aed1-7a15-4639-ba8c-56036dbf6a78",
+      "DisplayName": "Repositories",
+      "ColorIndex": 1
+    },
+    "68b9c9b6-e211-4301-ba6e-7d224a91103b": {
+      "ProjectGuid": "68b9c9b6-e211-4301-ba6e-7d224a91103b",
+      "DisplayName": "Entities",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 3
 }

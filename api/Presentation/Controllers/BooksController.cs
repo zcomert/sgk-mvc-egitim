@@ -19,6 +19,7 @@ public class BooksController : ControllerBase
     [HttpGet]
     public IActionResult GetAllBooks()
     {
+        throw new Exception("HataAA!!!!");
         try
         {
             var model = _context.Books;
