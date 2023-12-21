@@ -4,12 +4,12 @@ using Repositories.Contracts;
 
 namespace Repositories;
 
-public class RespositoryBase<T> : IRepositoryBase<T>
+public class RepositoryBase<T> : IRepositoryBase<T>
     where T : class
 {
-    private readonly RepositoryContext _context;
+    protected readonly RepositoryContext _context;
 
-    public RespositoryBase(RepositoryContext context)
+    public RepositoryBase(RepositoryContext context)
     {
         _context = context;
     }
