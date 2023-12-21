@@ -19,55 +19,32 @@ public class BooksController : ControllerBase
     [HttpGet]
     public IActionResult GetAllBooks()
     {
-        try
-        {
-            var model = _context.Books;
-            return Ok(model);
-        }
-        catch (System.Exception)
-        {
-            throw;
-        }
+        var model = _context.Books;
+        return Ok(model);
     }
 
     [HttpGet("{id:int}")]
     public IActionResult GetOneBook([FromRoute(Name = "id")] int id)
     {
-        try
-        {
-            var model = _context
-                        .Books
-                        .SingleOrDefault(b => b.Id.Equals(id));
+        var model = _context
+                    .Books
+                    .SingleOrDefault(b => b.Id.Equals(id));
 
-            if (model is null)
-                throw new BookNotFoundException(id); // 400
-
-            return Ok(model);
-        }
-        catch (System.Exception)
-        {
-            throw;
-        }
+        if (model is null)
+            throw new BookNotFoundException(id); // 400
+        return Ok(model);
     }
 
     [HttpPost]
     public IActionResult CreateOneBook([FromBody] Book book)
     {
-        try
-        {
-            if (book is null)
-                return BadRequest();
+        if (book is null)
+            return BadRequest();
 
-            _context.Books.Add(book);
-            _context.SaveChanges();
+        _context.Books.Add(book);
+        _context.SaveChanges();
 
-            return Created($"/api/books/{book.Id}", book);
-        }
-        catch (System.Exception)
-        {
-
-            throw;
-        }
+        return Created($"/api/books/{book.Id}", book);
     }
 
 
@@ -75,62 +52,40 @@ public class BooksController : ControllerBase
     public IActionResult UpdateOneBook([FromRoute(Name = "id")] int id,
         [FromBody] Book book)
     {
-        try
-        {
-            if (!id.Equals(book.Id))
-                return BadRequest(); // 400
+        if (!id.Equals(book.Id))
+            return BadRequest(); // 400
 
-            if (book is null)
-                return UnprocessableEntity(); // 422
+        if (book is null)
+            return UnprocessableEntity(); // 422
 
-            _context.Books.Update(book);
-            _context.SaveChanges();
-            return Ok(book);    // 200
-
-        }
-        catch (System.Exception)
-        {
-            throw;
-        }
+        _context.Books.Update(book);
+        _context.SaveChanges();
+        return Ok(book);    // 200
     }
 
     [HttpDelete("{id:int}")]
     public IActionResult DeleteOneBook([FromRoute(Name = "id")] int id)
     {
-        try
-        {
-            var book = _context
-                    .Books
-                    .SingleOrDefault(b => b.Id.Equals(id));
+        var book = _context
+                .Books
+                .SingleOrDefault(b => b.Id.Equals(id));
 
-            if (book is null)
-                throw new BookNotFoundException(id); // 404
+        if (book is null)
+            throw new BookNotFoundException(id); // 404
 
-            _context.Remove(book);
-            _context.SaveChanges();
-            return NoContent(); // 204
-        }
-        catch (System.Exception)
-        {
-
-            throw;
-        }
+        _context.Remove(book);
+        _context.SaveChanges();
+        return NoContent(); // 204
     }
 
 
     [HttpDelete]
     public IActionResult DeleteAll()
     {
-        try
-        {
-            _context.Books.RemoveRange(_context.Books.ToArray());
-            _context.SaveChanges();
-            return NoContent(); // 204
-        }
-        catch (System.Exception)
-        {
-            throw;
-        }
+        _context.Books.RemoveRange(_context.Books.ToArray());
+        _context.SaveChanges();
+        return NoContent(); // 204
     }
+
 
 }
