@@ -20,7 +20,10 @@ public static class ServiceExtensions
                 new HeaderApiVersionReader("api-version");
 
             options.Conventions.Controller<BooksController>()
-                .HasApiVersion(new ApiVersion(1, 0));
+                .HasDeprecatedApiVersion(new ApiVersion(1, 0));
+
+            options.Conventions.Controller<BooksV2Controller>()
+                .HasApiVersion(new ApiVersion(2, 0));
         });
     }
 
