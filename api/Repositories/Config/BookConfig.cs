@@ -11,6 +11,7 @@ public class BookConfig : IEntityTypeConfiguration<Book>
         // Fluent API
         builder.HasKey(b => b.Id); // Id - BookId
         builder.Property(b => b.Title).IsRequired();
+        builder.Property(b => b.Price).HasDefaultValue(100);
 
 
         builder.HasData(

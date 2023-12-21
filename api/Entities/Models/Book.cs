@@ -12,5 +12,19 @@ namespace Entities.Models
 
         [Range(10, 900, ErrorMessage = "Price 10 - 900 arasında olmalı")]
         public decimal Price { get; set; }
+
+        public static Book CreateBook () => new Book ();
+
+        public Book SetTitle(string title)
+        {
+            Title = title;
+            return this;
+        }
+
+        public Book SetPrice(decimal price)
+        {
+            Price = price;
+            return this;
+        }
     }
 }

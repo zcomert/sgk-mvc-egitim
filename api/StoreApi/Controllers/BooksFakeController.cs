@@ -13,6 +13,10 @@ public class BooksFakeController : ControllerBase
     public BooksFakeController(BookRepositoryFake fakeBookRepositoy)
     {
         _fakeBookRepositoy = fakeBookRepositoy;
+
+        var book = Book.CreateBook()
+            .SetTitle("Mesnevi")
+            .SetPrice(300);
     }
 
     [HttpGet]

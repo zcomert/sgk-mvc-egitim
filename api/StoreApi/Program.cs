@@ -17,6 +17,7 @@ builder.Services
 
 
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<BookRepositoryFake>();
