@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Repositories;
+using StoreApi.Infrastructure.Extensions;
 using StoreApi.InMemoryRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -40,9 +41,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
 app.MapControllers();
 
+app.ConfigureExceptionHandler();
 app.Run();
