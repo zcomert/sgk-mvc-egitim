@@ -20,7 +20,7 @@ public static class ExceptionMiddlewareExtension
                     await context.Response.WriteAsync(new ErrorDetails()
                     {
                         StatusCode = context.Response.StatusCode,
-                        Message = "Birşeyler ters gitti ;("
+                        Message = contextFeature.Error.Message
                     }.ToString());
                 }
             });
