@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Presentation.Controllers;
+using Repositories;
+using Repositories.Contracts;
 
 namespace StoreApi.Infrastructure.Extensions;
 
@@ -20,5 +22,10 @@ public static class ServiceExtensions
             options.Conventions.Controller<BooksController>()
                 .HasApiVersion(new ApiVersion(1, 0));
         });
+    }
+
+    public static void ConfigureRepositories(this IServiceCollection services)
+    {
+        services.AddScoped<IBookRepository, BookRepository>();
     }
 }

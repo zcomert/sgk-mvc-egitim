@@ -5,7 +5,8 @@ namespace Repositories;
 
 public sealed class BookRepository : RepositoryBase<Book>, IBookRepository
 {
-    public BookRepository(RepositoryContext context) : base(context)
+    public BookRepository(RepositoryContext context)
+        : base(context)
     {
 
     }
