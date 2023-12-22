@@ -15,16 +15,16 @@
 Sayfalama (Pagination)
 Filtreleme (Filtering)
 Arama (Searching)
-API Dokümantasyonu (API Documentation)
 
 AutoMapper
-Önbelleğe Alma (Caching)
 Eylem Filtreleri (Action Filters)
+JWT, Identity ve Refresh Token
+Önbelleğe Alma (Caching)
 Veri Şekillendirme (Data Shaping)
 Sıralama (Sorting)
 Hız Sınırlama ve Kısıtlama (Rate Limit and Throttling)
-JWT, Identity ve Refresh Token
-
 Asenkron Kod (Asynchronous Code)
 NLog Uygulaması (NLog Implementation)
+
+API Dokümantasyonu (API Documentation)
 HATEOAS (Zaman kalırsa)
