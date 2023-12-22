@@ -25,7 +25,7 @@ public class BookManager : IBookService
 
     public void DeleteOneBook(int id)
     {
-        throw new NotImplementedException();
+        var book = GetOneBook(id, false);
     }
 
     public IEnumerable<Book> GetAllBooks()
