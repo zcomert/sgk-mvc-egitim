@@ -24,13 +24,17 @@ public static class ServiceExtensions
                 .HasDeprecatedApiVersion(new ApiVersion(1, 0));
 
             options.Conventions.Controller<BooksV2Controller>()
-                .HasApiVersion(new ApiVersion(2, 0));
+                .HasDeprecatedApiVersion(new ApiVersion(2, 0));
+            
+            options.Conventions.Controller<BooksV3Controller>()
+                .HasApiVersion(new ApiVersion(3, 0));
         });
     }
 
     public static void ConfigureRepositories(this IServiceCollection services)
     {
         services.AddScoped<IBookRepository, BookRepository>();
+        services.AddScoped<IRepositoryManager, RepositoryManager>();
     }
 
     public static void ConfigureCORS(this IServiceCollection services)
