@@ -5732,6 +5732,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 6.0.0",
       "Presentation >= 1.0.0",
       "Repositories >= 1.0.0",
+      "Services >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
@@ -5770,6 +5771,9 @@
             },
             "D:\\mvc-egitim\\api\\Repositories\\Repositories.csproj": {
               "projectPath": "D:\\mvc-egitim\\api\\Repositories\\Repositories.csproj"
+            },
+            "D:\\mvc-egitim\\api\\Services\\Services.csproj": {
+              "projectPath": "D:\\mvc-egitim\\api\\Services\\Services.csproj"
             }
           }
         }

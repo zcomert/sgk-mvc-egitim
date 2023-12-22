@@ -23,16 +23,11 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<BookRepositoryFake>();
 
-builder.Services.AddDbContext<RepositoryContext>(options =>
-{
-    options.UseSqlServer(builder
-    .Configuration
-    .GetConnectionString("sqlconnection"),
-    prj => prj.MigrationsAssembly("StoreApi"));
-});
+
 
 builder.Services.ConfigureVersioning();
-builder.Services.ConfigureRepositories();
+builder.Services.ConfigureRepositories(builder.Configuration);
+builder.Services.ConfigureServices();
 builder.Services.ConfigureCORS();
 
 

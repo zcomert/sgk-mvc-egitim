@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Presentation.Controllers;
 using Repositories;
 using Repositories.Contracts;
+using Services;
+using Services.Contracts;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace StoreApi.Infrastructure.Extensions;
@@ -32,10 +35,23 @@ public static class ServiceExtensions
         });
     }
 
-    public static void ConfigureRepositories(this IServiceCollection services)
+    public static void ConfigureRepositories(this IServiceCollection services, IConfiguration config)
     {
+
+        services.AddDbContext<RepositoryContext>(options =>
+        {
+            options.UseSqlServer(
+            config.GetConnectionString("sqlconnection"),
+            prj => prj.MigrationsAssembly("StoreApi"));
+        });
+
         services.AddScoped<IBookRepository, BookRepository>();
         services.AddScoped<IRepositoryManager, RepositoryManager>();
+    }
+
+    public static void ConfigureServices(this IServiceCollection services)
+    {
+        services.AddScoped<IBookService, BookManager>();
     }
 
     public static void ConfigureCORS(this IServiceCollection services)

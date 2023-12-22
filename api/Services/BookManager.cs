@@ -52,6 +52,16 @@ public class BookManager : IBookService
 
     public Book UpdateOneBook(int id, Book book)
     {
-        throw new NotImplementedException();
+        var entity = GetOneBook(id, false);
+        
+        if (!id.Equals(book.Id))
+            throw new Exception("Parametreler uyuşmuyor.");
+
+        _manager
+            .BookRepository
+            .Update(book);
+
+        _manager.Save();
+        return book;
     }
 };
