@@ -23,7 +23,7 @@ public class BooksV3Controller : ControllerBase
         var model = _manager
         .BookRepository
         .ReadAll();
-      
+
         return Ok(model);
     }
 
@@ -46,14 +46,14 @@ public class BooksV3Controller : ControllerBase
             .Create(book);
 
         _manager.Save();
-        
+
         return CreatedAtAction(nameof(GetOneBook), new { id = book.Id }, book);
         //return StatusCode(201, book);
     }
 
-    [HttpPut]
+    [HttpPut("{id:int}")]
     // api/books?id={id} şeklindeki endpoint üzerinden gücelleme alır.
-    public IActionResult UpdateOneBook([FromQuery(Name = "id")] int id,
+    public IActionResult UpdateOneBook([FromRoute(Name = "id")] int id,
         [FromBody] Book book)
     {
         // Emin ol kitap var mı?
@@ -78,7 +78,7 @@ public class BooksV3Controller : ControllerBase
             .Update(book);
 
         _manager.Save();
-        
+
         return Ok(book);
     }
 

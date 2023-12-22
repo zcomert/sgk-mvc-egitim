@@ -4,6 +4,7 @@ using Microsoft.OpenApi.Models;
 using Presentation.Controllers;
 using Repositories;
 using Repositories.Contracts;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace StoreApi.Infrastructure.Extensions;
 
@@ -25,7 +26,7 @@ public static class ServiceExtensions
 
             options.Conventions.Controller<BooksV2Controller>()
                 .HasDeprecatedApiVersion(new ApiVersion(2, 0));
-            
+
             options.Conventions.Controller<BooksV3Controller>()
                 .HasApiVersion(new ApiVersion(3, 0));
         });
@@ -50,11 +51,9 @@ public static class ServiceExtensions
         });
     }
 
-    public static void ConfigureSwagger(this IServiceCollection services)
-    {
-        services.AddSwaggerGen(s =>
-        {
-            s.SwaggerDoc("v2", new OpenApiInfo { Title = "SGK", Version = "v2" });
-        });
-    }
+
+
+
+
+
 }

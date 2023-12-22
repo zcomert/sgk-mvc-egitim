@@ -34,15 +34,15 @@ builder.Services.AddDbContext<RepositoryContext>(options =>
 builder.Services.ConfigureVersioning();
 builder.Services.ConfigureRepositories();
 builder.Services.ConfigureCORS();
-builder.Services.ConfigureSwagger();
+
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    // app.UseSwagger();
+    // app.UseSwaggerUI();
 }
 
 app.UseCors("Default");
