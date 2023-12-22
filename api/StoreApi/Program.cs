@@ -34,6 +34,7 @@ builder.Services.AddDbContext<RepositoryContext>(options =>
 builder.Services.ConfigureVersioning();
 builder.Services.ConfigureRepositories();
 builder.Services.ConfigureCORS();
+builder.Services.ConfigureSwagger();
 
 var app = builder.Build();
 

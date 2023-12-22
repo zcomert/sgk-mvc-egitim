@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.OpenApi.Models;
 using Presentation.Controllers;
 using Repositories;
 using Repositories.Contracts;
@@ -42,6 +43,14 @@ public static class ServiceExtensions
                 .AllowAnyMethod()
                 .AllowAnyHeader();
             });
+        });
+    }
+
+    public static void ConfigureSwagger(this IServiceCollection services)
+    {
+        services.AddSwaggerGen(s =>
+        {
+            s.SwaggerDoc("v2", new OpenApiInfo { Title = "SGK", Version = "v2" });
         });
     }
 }

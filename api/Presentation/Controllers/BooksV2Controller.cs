@@ -47,6 +47,7 @@ public class BooksV2Controller : ControllerBase
     }
 
     [HttpPut]
+    // api/books?id={id} şeklindeki endpoint üzerinden gücelleme alır.
     public IActionResult UpdateOneBook([FromQuery(Name = "id")] int id,
         [FromBody] Book book)
     {
@@ -69,4 +70,19 @@ public class BooksV2Controller : ControllerBase
         _bookRepository.Update(book);
         return Ok(book);
     }
+
+    [HttpDelete("{id:int}")]
+    public IActionResult DeleteOneBook([FromRoute(Name = "id")] int id)
+    {
+        // varlıktan emin olmalıyız.
+        var entity = _bookRepository
+                        .Read(b => b.Id.Equals(id), false);
+
+        if (entity is null)
+            throw new BookNotFoundException(1);
+
+        return NoContent(); // 204
+
+    }
+
 }
