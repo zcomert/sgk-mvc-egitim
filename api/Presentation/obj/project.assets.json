@@ -1809,6 +1809,20 @@
         "runtime": {
           "bin/placeholder/Repositories.dll": {}
         }
+      },
+      "Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Entities": "1.0.0",
+          "Repositories": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Services.dll": {}
+        }
       }
     }
   },
@@ -5523,6 +5537,11 @@
       "type": "project",
       "path": "../Repositories/Repositories.csproj",
       "msbuildProject": "../Repositories/Repositories.csproj"
+    },
+    "Services/1.0.0": {
+      "type": "project",
+      "path": "../Services/Services.csproj",
+      "msbuildProject": "../Services/Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5530,7 +5549,8 @@
       "Entities >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.Core >= 2.2.5",
       "Microsoft.AspNetCore.Mvc.Versioning >= 5.1.0",
-      "Repositories >= 1.0.0"
+      "Repositories >= 1.0.0",
+      "Services >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5565,6 +5585,9 @@
             },
             "D:\\mvc-egitim\\api\\Repositories\\Repositories.csproj": {
               "projectPath": "D:\\mvc-egitim\\api\\Repositories\\Repositories.csproj"
+            },
+            "D:\\mvc-egitim\\api\\Services\\Services.csproj": {
+              "projectPath": "D:\\mvc-egitim\\api\\Services\\Services.csproj"
             }
           }
         }

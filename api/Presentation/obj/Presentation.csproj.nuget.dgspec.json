@@ -88,6 +88,9 @@
               },
               "D:\\mvc-egitim\\api\\Repositories\\Repositories.csproj": {
                 "projectPath": "D:\\mvc-egitim\\api\\Repositories\\Repositories.csproj"
+              },
+              "D:\\mvc-egitim\\api\\Services\\Services.csproj": {
+                "projectPath": "D:\\mvc-egitim\\api\\Services\\Services.csproj"
               }
             }
           }
@@ -186,6 +189,68 @@
               "version": "[6.0.0, )"
             }
           },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\mvc-egitim\\api\\Services\\Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\mvc-egitim\\api\\Services\\Services.csproj",
+        "projectName": "Services",
+        "projectPath": "D:\\mvc-egitim\\api\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\zafer\\.nuget\\packages\\",
+        "outputPath": "D:\\mvc-egitim\\api\\Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\zafer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\mvc-egitim\\api\\Entities\\Entities.csproj": {
+                "projectPath": "D:\\mvc-egitim\\api\\Entities\\Entities.csproj"
+              },
+              "D:\\mvc-egitim\\api\\Repositories\\Repositories.csproj": {
+                "projectPath": "D:\\mvc-egitim\\api\\Repositories\\Repositories.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
           "imports": [
             "net461",
             "net462",
