@@ -53,7 +53,7 @@ public class BookManager : IBookService
     public Book UpdateOneBook(int id, Book book)
     {
         var entity = GetOneBook(id, false);
-        
+
         if (!id.Equals(book.Id))
             throw new Exception("Parametreler uyuşmuyor.");
 
