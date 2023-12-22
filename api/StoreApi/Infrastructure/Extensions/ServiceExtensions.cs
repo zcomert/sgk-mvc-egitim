@@ -52,6 +52,7 @@ public static class ServiceExtensions
     public static void ConfigureServices(this IServiceCollection services)
     {
         services.AddScoped<IBookService, BookManager>();
+        services.AddScoped<IServiceManager, ServiceManager>();
     }
 
     public static void ConfigureCORS(this IServiceCollection services)
