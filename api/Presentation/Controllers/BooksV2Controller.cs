@@ -81,8 +81,9 @@ public class BooksV2Controller : ControllerBase
         if (entity is null)
             throw new BookNotFoundException(1);
 
-        return NoContent(); // 204
+        _bookRepository.Delete(entity);
 
+        return NoContent(); // 204
     }
 
 }
