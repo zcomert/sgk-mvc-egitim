@@ -44,6 +44,8 @@ public class BooksV3Controller : ControllerBase
         _manager
             .BookRepository
             .Create(book);
+
+        _manager.Save();
         
         return CreatedAtAction(nameof(GetOneBook), new { id = book.Id }, book);
         //return StatusCode(201, book);
@@ -74,6 +76,8 @@ public class BooksV3Controller : ControllerBase
         _manager
             .BookRepository
             .Update(book);
+
+        _manager.Save();
         
         return Ok(book);
     }
@@ -92,6 +96,8 @@ public class BooksV3Controller : ControllerBase
         _manager
             .BookRepository
             .Delete(entity);
+
+        _manager.Save();
 
         return NoContent(); // 204
     }

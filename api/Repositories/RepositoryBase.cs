@@ -17,13 +17,13 @@ public class RepositoryBase<T> : IRepositoryBase<T>
     public void Create(T entity)
     {
         _context.Set<T>().Add(entity);
-        _context.SaveChanges();
+        // _context.SaveChanges();
     }
 
     public void Delete(T entity)
     {
         _context.Set<T>().Remove(entity);
-        _context.SaveChanges();
+        // _context.SaveChanges();
     }
 
     public T? Read(Expression<Func<T, bool>> filter, bool trackChanges)
@@ -43,6 +43,6 @@ public class RepositoryBase<T> : IRepositoryBase<T>
     public void Update(T entity)
     {
         _context.Set<T>().Update(entity);
-        _context.SaveChanges();
+        // _context.SaveChanges();
     }
 }
