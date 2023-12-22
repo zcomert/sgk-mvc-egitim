@@ -20,7 +20,12 @@
       "ProjectGuid": "68b9c9b6-e211-4301-ba6e-7d224a91103b",
       "DisplayName": "Entities",
       "ColorIndex": 2
+    },
+    "f9a78e5c-ebc1-4ed6-9c4b-5c2bb44c77be": {
+      "ProjectGuid": "f9a78e5c-ebc1-4ed6-9c4b-5c2bb44c77be",
+      "DisplayName": "Presentation",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 4
 }
