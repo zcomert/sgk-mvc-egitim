@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities;
+using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Services;
 
@@ -17,11 +18,13 @@ public class BooksV4Controller : ControllerBase
 
 
     [HttpGet]
-    public IActionResult GetAllBooks()
+    public IActionResult GetAllBooks([FromQuery] BookRequestParameters p)
     {
         var model = _manager
         .BookService
-        .GetAllBooks();
+        .GetAllBooks()
+        .Skip((p.PageNumber - 1) * p.PageSize)
+        .Take(p.PageSize);
 
         return Ok(model);
     }
@@ -31,8 +34,8 @@ public class BooksV4Controller : ControllerBase
     {
         var model = _manager
             .BookService
-            .GetOneBook(id,false);
-        
+            .GetOneBook(id, false);
+
         return Ok(model);
     }
 
