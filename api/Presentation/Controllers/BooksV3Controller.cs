@@ -10,30 +10,29 @@ namespace Presentation.Controllers;
 [Route("api/books")]
 public class BooksV3Controller : ControllerBase
 {
-    private readonly IBookRepository _bookRepository;
+    private readonly IRepositoryManager _manager;
 
-    public BooksV3Controller(IBookRepository bookRepository)
+    public BooksV3Controller(IRepositoryManager manager)
     {
-        _bookRepository = bookRepository;
+        _manager = manager;
     }
 
     [HttpGet]
     public IActionResult GetAllBooks()
     {
-        var model = _bookRepository
-        .ReadAll()
-        .Select(b => new
-        {
-            Title = b.Title,
-            Price = b.Price
-        });
+        var model = _manager
+        .BookRepository
+        .ReadAll();
+      
         return Ok(model);
     }
 
     [HttpGet("{id:int}")]
     public IActionResult GetOneBook([FromRoute(Name = "id")] int id)
     {
-        var model = _bookRepository.Read(b => b.Id.Equals(id), false);
+        var model = _manager
+            .BookRepository
+            .Read(b => b.Id.Equals(id), false);
         return Ok(model);
     }
 
@@ -42,7 +41,10 @@ public class BooksV3Controller : ControllerBase
     {
         if (book is null)
             return BadRequest(); // 400 
-        _bookRepository.Create(book);
+        _manager
+            .BookRepository
+            .Create(book);
+        
         return CreatedAtAction(nameof(GetOneBook), new { id = book.Id }, book);
         //return StatusCode(201, book);
     }
@@ -53,7 +55,8 @@ public class BooksV3Controller : ControllerBase
         [FromBody] Book book)
     {
         // Emin ol kitap var mı?
-        var entity = _bookRepository
+        var entity = _manager
+            .BookRepository
             .Read(b => b.Id.Equals(id), false);
 
         if (entity is null)
@@ -68,7 +71,10 @@ public class BooksV3Controller : ControllerBase
             return BadRequest();
 
         // Varsa güncelle
-        _bookRepository.Update(book);
+        _manager
+            .BookRepository
+            .Update(book);
+        
         return Ok(book);
     }
 
@@ -76,13 +82,16 @@ public class BooksV3Controller : ControllerBase
     public IActionResult DeleteOneBook([FromRoute(Name = "id")] int id)
     {
         // varlıktan emin olmalıyız.
-        var entity = _bookRepository
-                        .Read(b => b.Id.Equals(id), false);
+        var entity = _manager
+                .BookRepository
+                .Read(b => b.Id.Equals(id), false);
 
         if (entity is null)
             throw new BookNotFoundException(1);
 
-        _bookRepository.Delete(entity);
+        _manager
+            .BookRepository
+            .Delete(entity);
 
         return NoContent(); // 204
     }
