@@ -13,4 +13,15 @@ public class BooksV4Controller : ControllerBase
     {
         _manager = manager;
     }
+
+
+    [HttpGet]
+    public IActionResult GetAllBooks()
+    {
+        var model = _manager
+        .BookService
+        .GetAllBooks();
+
+        return Ok(model);
+    }
 }
