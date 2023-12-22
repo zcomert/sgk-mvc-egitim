@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.Exceptions;
+using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Contracts;
 
@@ -43,5 +44,29 @@ public class BooksV2Controller : ControllerBase
         _bookRepository.Create(book);
         return CreatedAtAction(nameof(GetOneBook), new { id = book.Id }, book);
         //return StatusCode(201, book);
+    }
+
+    [HttpPut]
+    public IActionResult UpdateOneBook([FromQuery(Name = "id")] int id,
+        [FromBody] Book book)
+    {
+        // Emin ol kitap var mı?
+        var entity = _bookRepository
+            .Read(b => b.Id.Equals(id), false);
+
+        if (entity is null)
+            throw new BookNotFoundException(id);
+
+        // gövde (MessageBody) geçerli mi?
+        if (book is null)
+            return UnprocessableEntity();
+
+        // id ile book.Id 
+        if (!id.Equals(book.Id))
+            return BadRequest();
+
+        // Varsa güncelle
+        _bookRepository.Update(book);
+        return Ok(book);
     }
 }

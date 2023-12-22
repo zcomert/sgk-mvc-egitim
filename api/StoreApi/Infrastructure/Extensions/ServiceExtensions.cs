@@ -31,4 +31,17 @@ public static class ServiceExtensions
     {
         services.AddScoped<IBookRepository, BookRepository>();
     }
+
+    public static void ConfigureCORS(this IServiceCollection services)
+    {
+        services.AddCors(options =>
+        {
+            options.AddPolicy("Default", builder =>
+            {
+                builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            });
+        });
+    }
 }

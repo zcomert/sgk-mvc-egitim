@@ -33,6 +33,7 @@ builder.Services.AddDbContext<RepositoryContext>(options =>
 
 builder.Services.ConfigureVersioning();
 builder.Services.ConfigureRepositories();
+builder.Services.ConfigureCORS();
 
 var app = builder.Build();
 
@@ -43,6 +44,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("Default");
 app.UseHttpsRedirection();
 app.UseAuthorization();
 
