@@ -5,10 +5,13 @@ namespace Repositories;
 public class RepositoryManager : IRepositoryManager
 {
     private readonly IBookRepository _bookRepository;
+    private readonly RepositoryContext _context;
 
-    public RepositoryManager(IBookRepository bookRepository)
+    public RepositoryManager(IBookRepository bookRepository, 
+        RepositoryContext context)
     {
         _bookRepository = bookRepository;
+        _context = context;
     }
 
     public IBookRepository BookRepository =>
@@ -16,6 +19,6 @@ public class RepositoryManager : IRepositoryManager
 
     public void Save()
     {
-        throw new NotImplementedException();
+        _context.SaveChanges();
     }
 }
