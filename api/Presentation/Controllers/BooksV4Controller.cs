@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Services;
 
-namespace Presentation;
+namespace Presentation.Controllers;
 
 [ApiController]
 [Route("api/books")]

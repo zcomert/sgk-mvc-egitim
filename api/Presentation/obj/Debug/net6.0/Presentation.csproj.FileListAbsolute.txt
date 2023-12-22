@@ -12,9 +12,9 @@ D:\mvc-egitim\api\Presentation\obj\Debug\net6.0\Presentation.GeneratedMSBuildEdi
 D:\mvc-egitim\api\Presentation\obj\Debug\net6.0\Presentation.AssemblyInfoInputs.cache
 D:\mvc-egitim\api\Presentation\obj\Debug\net6.0\Presentation.AssemblyInfo.cs
 D:\mvc-egitim\api\Presentation\obj\Debug\net6.0\Presentation.csproj.CoreCompileInputs.cache
-D:\mvc-egitim\api\Presentation\obj\Debug\net6.0\Presentation.sourcelink.json
 D:\mvc-egitim\api\Presentation\obj\Debug\net6.0\Presentation.csproj.CopyComplete
 D:\mvc-egitim\api\Presentation\obj\Debug\net6.0\Presentation.dll
-D:\mvc-egitim\api\Presentation\obj\Debug\net6.0\refint\Presentation.dll
-D:\mvc-egitim\api\Presentation\obj\Debug\net6.0\Presentation.pdb
 D:\mvc-egitim\api\Presentation\obj\Debug\net6.0\ref\Presentation.dll
+D:\mvc-egitim\api\Presentation\obj\Debug\net6.0\Presentation.pdb
+D:\mvc-egitim\api\Presentation\obj\Debug\net6.0\Presentation.sourcelink.json
+D:\mvc-egitim\api\Presentation\obj\Debug\net6.0\refint\Presentation.dll

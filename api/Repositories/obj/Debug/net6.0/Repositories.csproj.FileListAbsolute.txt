@@ -9,10 +9,10 @@ D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\Repositories.GeneratedMSBuildEdi
 D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\Repositories.AssemblyInfoInputs.cache
 D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\Repositories.AssemblyInfo.cs
 D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\Repositories.csproj.CoreCompileInputs.cache
-D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\Repositories.sourcelink.json
 D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\Repositories.csproj.CopyComplete
 D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\Repositories.dll
-D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\refint\Repositories.dll
+D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\ref\Repositories.dll
 D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\Repositories.pdb
 D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\Repositories.genruntimeconfig.cache
-D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\ref\Repositories.dll
+D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\Repositories.sourcelink.json
+D:\mvc-egitim\api\Repositories\obj\Debug\net6.0\refint\Repositories.dll

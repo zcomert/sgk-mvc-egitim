@@ -31,7 +31,10 @@ public static class ServiceExtensions
                 .HasDeprecatedApiVersion(new ApiVersion(2, 0));
 
             options.Conventions.Controller<BooksV3Controller>()
-                .HasApiVersion(new ApiVersion(3, 0));
+                .HasDeprecatedApiVersion(new ApiVersion(3, 0));
+
+            options.Conventions.Controller<BooksV4Controller>()
+               .HasApiVersion(new ApiVersion(4, 0));
         });
     }
 
